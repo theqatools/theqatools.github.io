@@ -1,0 +1,37 @@
+/* tslint:disable */
+/* eslint-disable */
+export const memory: WebAssembly.Memory;
+export function generate_cnpj(a: number): void;
+export function generate_cnpj_for_branch(a: number, b: number, c: number): void;
+export function cnpj_is_valid(a: number, b: number): number;
+export function __wbg_nfe_free(a: number): void;
+export function __wbg_get_nfe_uf(a: number): number;
+export function __wbg_set_nfe_uf(a: number, b: number): void;
+export function __wbg_get_nfe_model(a: number): number;
+export function __wbg_set_nfe_model(a: number, b: number): void;
+export function __wbg_get_nfe_serie(a: number): number;
+export function __wbg_set_nfe_serie(a: number, b: number): void;
+export function __wbg_get_nfe_nfeNumber(a: number): number;
+export function __wbg_set_nfe_nfeNumber(a: number, b: number): void;
+export function __wbg_get_nfe_issueMode(a: number): number;
+export function __wbg_set_nfe_issueMode(a: number, b: number): void;
+export function __wbg_get_nfe_code(a: number): number;
+export function __wbg_set_nfe_code(a: number, b: number): void;
+export function __wbg_get_nfe_dv(a: number): number;
+export function __wbg_set_nfe_dv(a: number, b: number): void;
+export function __wbg_nfekeyvalidationresult_free(a: number): void;
+export function nfekeyvalidationresult_errorMessage(a: number, b: number): void;
+export function nfekeyvalidationresult_nfe(a: number): number;
+export function nfekeyvalidationresult_isValid(a: number): number;
+export function nfe_new(): number;
+export function nfe_yearMonth(a: number, b: number): void;
+export function nfe_set_yearMonth(a: number, b: number, c: number): void;
+export function nfe_issuerCnpj(a: number, b: number): void;
+export function nfe_set_issuerCnpj(a: number, b: number, c: number): void;
+export function calculate_nfe_dv(a: number): void;
+export function generate_nfe_key(a: number, b: number): void;
+export function validate_nfe_key(a: number, b: number): number;
+export function __wbindgen_free(a: number, b: number): void;
+export function __wbindgen_malloc(a: number): number;
+export function __wbindgen_realloc(a: number, b: number, c: number): number;
+export function __wbindgen_exn_store(a: number): void;

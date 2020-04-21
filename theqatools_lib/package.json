@@ -1,0 +1,23 @@
+{
+  "name": "wasm-tqt-lib",
+  "collaborators": [
+    "Allan Silva <allan@allansilva.com.br>"
+  ],
+  "description": "WebAssembly wrapper for The QA Tools lib",
+  "version": "0.1.0",
+  "license": "MPL2",
+  "repository": {
+    "type": "git",
+    "url": "https://bitbucket.org/theqatools/theqatools-lib"
+  },
+  "files": [
+    "wasm_tqt_lib_bg.wasm",
+    "wasm_tqt_lib.js",
+    "wasm_tqt_lib.d.ts",
+    "LICENSE_APACHE",
+    "LICENSE_MIT"
+  ],
+  "module": "wasm_tqt_lib.js",
+  "types": "wasm_tqt_lib.d.ts",
+  "sideEffects": false
+}
