@@ -151,11 +151,11 @@ footer {
     width: 15ch;
 }
 
-.valid-text {
+span.valid-text {
     color: darkgreen;
 }
 
-.invalid-text {
+span.invalid-text {
     color: red;
 }
 
