@@ -17,6 +17,7 @@ header h1 a:link {
 }
 
 header h1 a:visited {
+    color: #555555;
     text-decoration: none;
 }
 
@@ -108,7 +109,7 @@ main {
 }
 
 .wasm-box p {
-    font-size: 35px;
+    font-size: 25px;
     color: #555555;
     padding: 78px 0 78px 0px;
     font-weight: bold;
@@ -124,4 +125,40 @@ footer {
     position: absolute;
     bottom: 0;
     width: 100%;
+}
+
+.input-cnpj-area {
+    margin: 20px auto;
+    padding: 20px 60px;
+}
+
+.input-cnpj-area label {
+    font-weight: bold;
+    font-size: 20px;
+    color: #555555;
+}
+
+.input-cnpj-area .big-input-text {
+    display: block;
+    margin: 10px 0;
+    height: 60px;
+    padding: 10px;
+    font-size: 35px;
+    color: #555555;
+}
+
+.cnpj-text {
+    width: 15ch;
+}
+
+.valid-text {
+    color: darkgreen;
+}
+
+.invalid-text {
+    color: red;
+}
+
+.input-cnpj-area .valid-text, .input-cnpj-area .invalid-text {
+    display: none;
 }

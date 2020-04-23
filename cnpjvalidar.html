@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title>The QA Tools - Demo site</title>
+        <meta charset="UTF-8" />
+        <link rel="stylesheet" href="reset.css" />
+        <link rel="stylesheet" href="site.css" />
+        <script type="module">
+            import {cnpjIsValid} from "./cnpj_utils.js";
+
+            function setDisplay(id, value) {
+                document.getElementById(id).style.display = value;
+            }
+            
+            function setValid() {
+                setDisplay("valid-text", "block");
+                setDisplay("invalid-text", "none");
+            }
+
+            function setInvalid() {
+                setDisplay("valid-text", "none");
+                setDisplay("invalid-text", "block");
+            }
+
+            function validateCnpj(e) {
+                let cnpj = e.target.value;
+                if (cnpj.length === 14 && cnpjIsValid(cnpj)) {
+                    setValid();
+                } else {
+                    setInvalid();
+                }
+            }
+
+            function addhandler(event) {
+                document.getElementById("cnpj").addEventListener(event, validateCnpj);
+            }
+
+            addhandler("paste");
+            addhandler("blur");
+            addhandler("keyup");
+            addhandler("input");
+        </script>
+    </head>
+    <body>
+        <header>
+            <div>
+                <h1><a href="index.html">The QA Tools - Demo site</a></h1>
+            </div>
+            <nav>
+                <div class="tool-options">
+                    <h2>CNPJ</h2>
+                    <ul>
+                        <li><a href="#">Gerar</a></li>
+                        <li><a href="cnpjvalidar.html">Validar</a></li>
+                    </ul>
+                </div>
+
+                <div class="tool-options">
+                    <h2>Chave NFe</h2>
+                    <ul>
+                        <li><a href="#">Gerar</a></li>
+                        <li><a href="#">Validar</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <main>
+            <div class="input-cnpj-area">
+                <label for="cnpj">
+                    CNPJ:
+                    <input maxlength="14" minlength="14" size="15" class="big-input-text cnpj-text" type="text" id="cnpj" placeholder="Digite o CNPJ" />
+                </label>
+
+                <span id="valid-text" class="valid-text">CNPJ válido</span>
+                <span id="invalid-text" class="invalid-text">CNPJ inválido</span>
+            </div>
+        </main>
+        <footer>
+            <p>&copy; The QA Tools</p>
+        </footer>
+    </body>
+</html>
