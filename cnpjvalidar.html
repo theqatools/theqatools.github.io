@@ -3,15 +3,17 @@
     <head>
         <title>The QA Tools - Demo site</title>
         <meta charset="UTF-8" />
-        <link rel="stylesheet" href="reset.css" />
-        <link rel="stylesheet" href="site.css" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/reset.css" />
+        <link rel="stylesheet" href="css/grid.css">
+        <link rel="stylesheet" href="css/site.css" />
         <script type="module">
             import {cnpjIsValid} from "./cnpj_utils.js";
 
             function setDisplay(id, value) {
                 document.getElementById(id).style.display = value;
             }
-            
             function setValid() {
                 setDisplay("valid-text", "block");
                 setDisplay("invalid-text", "none");
@@ -41,28 +43,38 @@
             addhandler("input");
         </script>
     </head>
-    <body>
+    <body onresize="onResize()">
         <header>
-            <div>
-                <h1><a href="index.html">The QA Tools - Demo site</a></h1>
-            </div>
-            <nav>
-                <div class="tool-options">
-                    <h2>CNPJ</h2>
-                    <ul>
-                        <li><a href="#">Gerar</a></li>
-                        <li><a href="cnpjvalidar.html">Validar</a></li>
-                    </ul>
+            <div class="container flex-grid">
+                <div class="menu-hamburguer">
+                    <input id="menu-hamburguer" type="checkbox" onclick="showMenu()">
+                    <label for="menu-hamburguer">
+                        <div class="menu">
+                            <span class="hamburguer"></span>
+                        </div>
+                    </label>
                 </div>
+                <div class="title grid-11">
+                    <h1><a href="index.html">The QA Tools - Demo site</a></h1>
+                </div>
+                <nav class="grid-5" id="menuNav">
+                    <div class="tool-options">
+                        <h2>CNPJ</h2>
+                        <ul>
+                            <li><a href="#">Gerar</a></li>
+                            <li><a href="cnpjvalidar.html">Validar</a></li>
+                        </ul>
+                    </div>
 
-                <div class="tool-options">
-                    <h2>Chave NFe</h2>
-                    <ul>
-                        <li><a href="#">Gerar</a></li>
-                        <li><a href="#">Validar</a></li>
-                    </ul>
-                </div>
-            </nav>
+                    <div class="tool-options">
+                        <h2>Chave NFe</h2>
+                        <ul>
+                            <li><a href="#">Gerar</a></li>
+                            <li><a href="#">Validar</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
         </header>
         <main>
             <div class="input-cnpj-area">
@@ -78,5 +90,6 @@
         <footer>
             <p>&copy; The QA Tools</p>
         </footer>
+        <script src="js/script.js"></script>
     </body>
 </html>
