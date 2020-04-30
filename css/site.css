@@ -193,6 +193,7 @@ footer {
     font-weight: bold;
     font-size: 20px;
     color: #555555;
+    display: block;
 }
 
 .input-cnpj-area .big-input-text {
@@ -206,6 +207,10 @@ footer {
 
 .cnpj-text {
     width: 15ch;
+}
+
+.filial-text {
+    width: 5ch;;
 }
 
 span.valid-text {
