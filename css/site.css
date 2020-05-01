@@ -220,7 +220,7 @@ span.invalid-text {
     color: red;
 }
 
-.input-cnpj-area .valid-text, .input-cnpj-area .invalid-text {
+.valid-text, .invalid-text {
     display: none;
 }
 

@@ -8,6 +8,19 @@
         <link rel="stylesheet" href="css/reset.css" />
         <link rel="stylesheet" href="css/grid.css">
         <link rel="stylesheet" href="css/site.css" />
+        <script type="module">
+            import {validateKey} from "./nfe_utils.js";
+
+
+            function addhandler(event) {
+                document.getElementById("cnpj").addEventListener(event, validateCnpj);
+            }
+
+            addhandler("paste");
+            addhandler("blur");
+            addhandler("keyup");
+            addhandler("input");
+        </script>
     </head>
     <body onresize="onResize()">
         <header>
@@ -43,64 +56,12 @@
             </div>
         </header>
         <main>
-            <div class="input-cnpj-area">
-                <label for="cnpj">
-                    CNPJ:
-                    <input readonly maxlength="14" minlength="14" size="15" class="big-input-text cnpj-text" type="text" id="cnpj" />
-                    <a href="#" id="copyCnpj">&#128203;</a>
-                </label>
-            </div>
-            <div class="input-cnpj-area">
-                <label for="filial">
-                    Filial:
-                    <input type="number" id="filial" value="1" maxlength="4" minlength="1" class="big-input-text filial-text" />
-                </label>
-            </div>
-            <div class="input-cnpj-area">
-                <a href="#" style="font-size: 24px;" id="novo">&#8635;</a>
-            </div>
+            <span id="valid-text" class="valid-text">CNPJ válido</span>
+            <span id="invalid-text" class="invalid-text">CNPJ inválido</span>
         </main>
         <footer>
             <p>&copy; The QA Tools - <a href="desenvolvedores.html">Desenvolvedores</a></p>
         </footer>
         <script src="js/script.js"></script>
-        <script type="module">
-            import {generateCnpjForBranch} from "./cnpj_utils.js";
-
-            function generate() {
-                let branch = document.getElementById("filial").value;
-                branch = branch.replace(/[^0-9]/g, "");
-
-                if (branch === "") {
-                    branch = "1";
-                    document.getElementById("filial").value = branch;
-                }
-
-                const branch_no = parseInt(branch, 10);
-
-                if(branch_no === 0) {
-                    branch = "1";
-                    document.getElementById("filial").value = branch;
-                }
-
-                document.getElementById("cnpj").value = generateCnpjForBranch(branch);
-            }
-
-            function novoOnClick() {
-                generate();
-                return false;
-            }
-            
-            function copy() {
-                const input = document.getElementById("cnpj");
-                input.select();
-                document.execCommand("copy");
-            }
-
-            document.getElementById("novo").addEventListener('click', novoOnClick);
-            document.getElementById("copyCnpj").addEventListener('click', copy);
-            
-            setTimeout(generate, 100);
-        </script>
     </body>
 </html>
