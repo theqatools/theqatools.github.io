@@ -56,6 +56,98 @@
             </div>
         </header>
         <main>
+            <fieldset class="field-box">
+                <label  for="cnpj">
+                    CNPJ:
+                    <input type="text" id="cnpj" minlength="14" maxlength="14" required />
+                    <span id="invalid-text" class="invalid-text">CNPJ inválido</span>
+                </label>
+                <a href="#">Gerar CNPJ</a>
+            </fieldset>
+
+            <fieldset class="field-box">
+                <legend>Mês/Ano</legend>
+                <select id="mes" required>
+                    <option value="01">1 - Janeiro</option>
+                    <option value="02">2 - Fevereiro</option>
+                    <option value="03">3 - Março</option>
+                    <option value="04">4 - Abril</option>
+                    <option value="05">5 - Maio</option>
+                    <option value="06">6 - Junho</option>
+                    <option value="07">7 - Julho</option>
+                    <option value="08">8 - Agosto</option>
+                    <option value="09">9 - Setembro</option>
+                    <option value="10">10 - Outubro</option>
+                    <option value="11">11 - Novembro</option>
+                    <option value="12">12 - Dezembro</option>
+                </select>
+                <input type="text" id="ano" minlength="4" maxlength="4" />
+            </fieldset>
+
+            <label for="uf" class="field-box">
+                UF
+                <select id="uf" required>
+                    <option value="11">11 - Rondônia</option>
+                    <option value="12">12 - Acre</option>
+                    <option value="13">13 - Amazonas</option>
+                    <option value="14">14 - Roraima</option>
+                    <option value="15">15 - Pará</option>
+                    <option value="16">16 - Amapá</option>
+                    <option value="17">17 - Tocantins</option>
+                    <option value="21">21 - Maranhão</option>
+                    <option value="22">22 - Piauí</option>
+                    <option value="23">23 - Ceará</option>
+                    <option value="24">24 - Rio Grande do Norte</option>
+                    <option value="25">25 - Paraíba</option>
+                    <option value="26">26 - Pernambuco</option>
+                    <option value="27">27 - Alagoas</option>
+                    <option value="28">28 - Sergipe</option>
+                    <option value="29">29 - Bahia</option>
+                    <option value="31">31 - Minas Gerais</option>
+                    <option value="32">32 - Espírito Santo</option>
+                    <option value="33">33 - Rio de Janeiro</option>
+                    <option value="35" selected>35 - São Paulo</option>
+                    <option value="41">41 - Paraná</option>
+                    <option value="42">42 - Santa Catarina</option>
+                    <option value="43">43 - Rio Grande do Sul</option>
+                    <option value="50">50 - Mato Grosso do Sul</option>
+                    <option value="51">51 - Mato Grosso</option>
+                    <option value="52">52 - Goiás</option>
+                    <option value="53">53 - Distrito Federal</option>
+                </select>
+            </label>
+
+            <label for="modelo" class="field-box">
+                Modelo
+                <input type="text" id="modelo" value="55" minlength="2" maxlength="2" required />
+            </label>
+
+            <label for="serie" class="field-box">
+                Série
+                <input type="text" id="serie" value="001" minlength="3" maxlength="3" required />
+            </label>
+
+            <label for="numero" class="field-box">
+                Número da nota
+                <input type="text" id="numero" minlength="9" maxlength="9" required />
+            </label>
+
+            <label for="tipoEmissao" class="field-box">
+                Forma de emissão
+                <select id="formaEmissao">
+                    <option value="1" selected>Normal</option>
+                    <option value="2">Contingência FS</option>
+                    <option value="3">Contingência SCAN</option>
+                    <option value="4">Contingência DPEC</option>
+                    <option value="5">Contingência FS-DA</option>
+                </select>
+            </label>
+
+            <label for="codigoNumerico" class="field-box">
+                Código numérico
+                <input type="text" id="codigoNumerico" minlength="8" maxlength="8" required />
+                <a href="#">Gerar Código</a>
+            </label>
 
             <span id="valid-text" class="valid-text">CNPJ válido</span>
             <span id="invalid-text" class="invalid-text">CNPJ inválido</span>

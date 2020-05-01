@@ -224,6 +224,18 @@ span.invalid-text {
     display: none;
 }
 
+.field-box {
+
+}
+
+.field-box input {
+    display: inline;
+}
+
+.field-box label {
+
+}
+
 @media(min-width: 960px){
 
     .container {
