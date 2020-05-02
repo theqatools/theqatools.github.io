@@ -1,6 +1,7 @@
 /* tslint:disable */
 /* eslint-disable */
 export const memory: WebAssembly.Memory;
+export function next_i32(a: number, b: number): number;
 export function generate_cnpj(a: number): void;
 export function generate_cnpj_for_branch(a: number, b: number, c: number): void;
 export function cnpj_is_valid(a: number, b: number): number;

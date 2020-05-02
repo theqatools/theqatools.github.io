@@ -10,16 +10,51 @@
         <link rel="stylesheet" href="css/site.css" />
         <script type="module">
             import {validateKey} from "./nfe_utils.js";
+            import {nextI32} from "./rnd_utils.js";
+            import {cnpjIsValid, generateCnpj} from "./cnpj_utils.js";
 
-
-            function addhandler(event) {
-                document.getElementById("cnpj").addEventListener(event, validateCnpj);
+            function setDisplay(id, value) {
+                document.getElementById(id).style.display = value;
             }
 
-            addhandler("paste");
-            addhandler("blur");
-            addhandler("keyup");
-            addhandler("input");
+            function addHandler(elName, event, handler) {
+                document.getElementById(elName).addEventListener(event, handler);
+            }
+
+            function generateNumericCode() {
+                document.getElementById("codigoNumerico").value = nextI32(1, 99999999);
+            }
+
+            function generateNFNumber() {
+                document.getElementById("numero").value = nextI32(1, 999999999);
+            }
+
+            function genCnpj() {
+                document.getElementById("cnpj").value = generateCnpj();
+            }
+
+            function valCnpj(e) {
+                let cnpj = e.target.value;
+                if (cnpj.length !== 14 || !cnpjIsValid(cnpj)) {
+                    setDisplay("invalid-cnpj-text", "block");
+                } else {
+                    setDisplay("invalid-cnpj-text", "none");
+                }
+            }
+
+            addHandler("gerar-codigo", "click", generateNumericCode);
+            addHandler("gerar-nota", "click", generateNFNumber);
+            addHandler("gerar-cnpj", "click", genCnpj);
+            addHandler("cnpj", "paste", valCnpj);
+            addHandler("cnpj", "blur", valCnpj);
+            addHandler("cnpj", "keyup", valCnpj);
+            addHandler("cnpj", "input", valCnpj);
+
+            setTimeout(function() {
+                const today = new Date();
+                document.getElementById("mes").value = today.getMonth();
+                document.getElementById("ano").value = today.getFullYear();
+            }, 100);
         </script>
     </head>
     <body onresize="onResize()">
@@ -62,7 +97,7 @@
                         CNPJ
                         <input style="width: 14ch;" type="text" id="cnpj" minlength="14" maxlength="14" required />
                         <a href="#" id="gerar-cnpj" class="rdn-gen-link">Gerar CNPJ</a>
-                        <span id="invalid-text" class="invalid-text">CNPJ inválido</span>
+                        <span id="invalid-cnpj-text" class="invalid-text">CNPJ inválido</span>
                     </label>
 
                     <label for="uf" class="grid-5">
@@ -102,15 +137,15 @@
                         <legend>Mês/Ano</legend>
                         <div class="year-month-group">
                             <select id="mes" required>
-                                <option value="01">1 - Janeiro</option>
-                                <option value="02">2 - Fevereiro</option>
-                                <option value="03">3 - Março</option>
-                                <option value="04">4 - Abril</option>
-                                <option value="05">5 - Maio</option>
-                                <option value="06">6 - Junho</option>
-                                <option value="07">7 - Julho</option>
-                                <option value="08">8 - Agosto</option>
-                                <option value="09">9 - Setembro</option>
+                                <option value="1">1 - Janeiro</option>
+                                <option value="2">2 - Fevereiro</option>
+                                <option value="3">3 - Março</option>
+                                <option value="4">4 - Abril</option>
+                                <option value="5">5 - Maio</option>
+                                <option value="6">6 - Junho</option>
+                                <option value="7">7 - Julho</option>
+                                <option value="8">8 - Agosto</option>
+                                <option value="9">9 - Setembro</option>
                                 <option value="10">10 - Outubro</option>
                                 <option value="11">11 - Novembro</option>
                                 <option value="12">12 - Dezembro</option>

@@ -19,7 +19,3 @@ export function generateCnpj() {
 export function generateCnpjForBranch(branch_no) {
     return generate_cnpj_for_branch(branch_no);
 }
-
-export function heyYou() {
-    return hey();
-}

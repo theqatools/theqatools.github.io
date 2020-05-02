@@ -36,6 +36,15 @@ function getUint8Memory0() {
 function getStringFromWasm0(ptr, len) {
     return cachedTextDecoder.decode(getUint8Memory0().subarray(ptr, ptr + len));
 }
+/**
+* @param {number} start
+* @param {number} end
+* @returns {number}
+*/
+export function next_i32(start, end) {
+    var ret = wasm.next_i32(start, end);
+    return ret >>> 0;
+}
 
 let cachegetInt32Memory0 = null;
 function getInt32Memory0() {

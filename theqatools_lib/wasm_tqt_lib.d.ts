@@ -1,6 +1,12 @@
 /* tslint:disable */
 /* eslint-disable */
 /**
+* @param {number} start 
+* @param {number} end 
+* @returns {number} 
+*/
+export function next_i32(start: number, end: number): number;
+/**
 * @returns {string} 
 */
 export function generate_cnpj(): string;
@@ -55,6 +61,7 @@ export type InitInput = RequestInfo | URL | Response | BufferSource | WebAssembl
 
 export interface InitOutput {
   readonly memory: WebAssembly.Memory;
+  readonly next_i32: (a: number, b: number) => number;
   readonly generate_cnpj: (a: number) => void;
   readonly generate_cnpj_for_branch: (a: number, b: number, c: number) => void;
   readonly cnpj_is_valid: (a: number, b: number) => number;
