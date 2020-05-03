@@ -241,6 +241,11 @@ span.invalid-text {
     font-size: 35px;
 }
 
+#chave-nfe::selection {
+    background-color: #CCCCCC;
+    text-shadow: #A0A0A0 2px 3px;
+}
+
 #btn-gen-nfe {
     margin: 10px 30%;
     height: 60px;
@@ -264,6 +269,10 @@ span.invalid-text {
 
 .nfe-area input, .nfe-area select {
     margin: 10px 2px 2px 0;
+}
+
+.nfe-area .invalid-text, .nfe-area .valid-text {
+    font-size: 10px
 }
 
 .rdn-gen-link {

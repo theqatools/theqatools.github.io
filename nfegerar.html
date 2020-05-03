@@ -9,28 +9,34 @@
         <link rel="stylesheet" href="css/grid.css">
         <link rel="stylesheet" href="css/site.css" />
         <script type="module">
-            import {validateKey} from "./nfe_utils.js";
+            import {validateKey, generateKey, NFe} from "./nfe_utils.js";
             import {nextI32} from "./rnd_utils.js";
             import {cnpjIsValid, generateCnpj} from "./cnpj_utils.js";
 
             function setDisplay(id, value) {
-                document.getElementById(id).style.display = value;
+                getEl(id).style.display = value;
             }
 
             function addHandler(elName, event, handler) {
-                document.getElementById(elName).addEventListener(event, handler);
+                getEl(elName).addEventListener(event, handler);
+            }
+
+            function getEl(id) {
+                return document.getElementById(id);
             }
 
             function generateNumericCode() {
-                document.getElementById("codigoNumerico").value = nextI32(1, 99999999);
+                getEl("codigoNumerico").value = nextI32(1, 99999999);
             }
 
             function generateNFNumber() {
-                document.getElementById("numero").value = nextI32(1, 999999999);
+                getEl("numero").value = nextI32(1, 999999999);
             }
 
             function genCnpj() {
-                document.getElementById("cnpj").value = generateCnpj();
+                getEl("cnpj").value = generateCnpj();
+                getEl("cnpj").focus();
+                getEl("cnpj").blur();
             }
 
             function valCnpj(e) {
@@ -42,6 +48,33 @@
                 }
             }
 
+            function getYearMonth() {
+                const month = getEl("mes").value;
+                const year = getEl("ano").value;
+
+                return year.substring(2, 4) + month.padStart(2, "0");
+            }
+
+            function genKey() {
+                const nfe = NFe.new();
+                nfe.issuerCnpj = getEl("cnpj").value;
+                nfe.yearMonth = getYearMonth();
+                nfe.uf = getEl("uf").value;
+                nfe.model = getEl("modelo").value;
+                nfe.serie = getEl("serie").value;
+                nfe.nfeNumber = getEl("numero").value;
+                nfe.code = getEl("codigoNumerico").value;
+                nfe.issueMode = getEl("tipoEmissao").value;
+                getEl("chave-nfe").value = generateKey(nfe);
+            }
+
+            function copyNFe() {
+                const input = document.getElementById("chave-nfe");
+                input.select();
+                document.execCommand("copy");
+                setDisplay("valid-text-copy-nfe", "block")
+            }
+
             addHandler("gerar-codigo", "click", generateNumericCode);
             addHandler("gerar-nota", "click", generateNFNumber);
             addHandler("gerar-cnpj", "click", genCnpj);
@@ -49,6 +82,9 @@
             addHandler("cnpj", "blur", valCnpj);
             addHandler("cnpj", "keyup", valCnpj);
             addHandler("cnpj", "input", valCnpj);
+            addHandler("btn-gen-nfe", "click", genKey);
+            addHandler("chave-nfe", "mouseup", copyNFe);
+            addHandler("chave-nfe", "blur", e => setDisplay("valid-text-copy-nfe", "none"));
 
             setTimeout(function() {
                 const today = new Date();
@@ -95,9 +131,11 @@
                 <fieldset class="flex-grid">
                     <label  for="cnpj" class="grid-5">
                         CNPJ
-                        <input style="width: 14ch;" type="text" id="cnpj" minlength="14" maxlength="14" required />
+                        <div>
+                            <input style="width: 14ch;" type="text" id="cnpj" minlength="14" maxlength="14" required />
+                            <span id="invalid-cnpj-text" class="invalid-text">CNPJ inválido</span>
+                        </div>
                         <a href="#" id="gerar-cnpj" class="rdn-gen-link">Gerar CNPJ</a>
-                        <span id="invalid-cnpj-text" class="invalid-text">CNPJ inválido</span>
                     </label>
 
                     <label for="uf" class="grid-5">
@@ -134,7 +172,7 @@
                     </label>
 
                     <fieldset class="grid-6">
-                        <legend>Mês/Ano</legend>
+                        <legend>Mês/Ano emissão</legend>
                         <div class="year-month-group">
                             <select id="mes" required>
                                 <option value="1">1 - Janeiro</option>
@@ -182,7 +220,7 @@
                 <fieldset class="flex-grid">
                     <label for="tipoEmissao" class="grid-2">
                         Forma de emissão
-                        <select id="formaEmissao">
+                        <select id="tipoEmissao">
                             <option value="1" selected>Normal</option>
                             <option value="2">Contingência FS</option>
                             <option value="3">Contingência SCAN</option>
@@ -195,6 +233,7 @@
                         <label for="chave-nfe">
                             Chave NF-e
                             <input type="text" placeholder="Chave NF-e" id="chave-nfe" readonly />
+                            <span id="valid-text-copy-nfe" style="text-align: right;" class="valid-text">Chave copiada para área de transferência!</span>
                         </label>
                     </div>
                     
