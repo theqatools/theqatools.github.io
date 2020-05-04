@@ -279,6 +279,46 @@ span.invalid-text {
     font-size: 10px;
 }
 
+.desenvolvedores-area {
+    margin: 50px 20px;
+}
+
+.dev {
+    margin: 0 0 30px 0;
+    padding: 20px 0;
+    clear: both;
+    overflow: auto;
+}
+
+.dev-img {
+    width: 120px;
+    float: left;
+}
+
+.dev-description {
+    margin: 0 0 0 140px;
+}
+
+.dev-description h1 {
+    font-weight: bold;
+    margin: 0 0 10px 0;
+}
+
+.dev-description p {
+    font-style: italic;
+    margin: 0 0 10px 0;
+}
+
+.social-icons li {
+    display: inline;
+}
+
+.social-icons img {
+    width: 30px;
+    height: 30px;
+    margin: 0 20px 0 0;
+}
+
 @media(min-width: 960px){
 
     .container {
