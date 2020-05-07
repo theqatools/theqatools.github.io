@@ -2,7 +2,7 @@ import init, {
     generate_nfe_key,
     calculate_nfe_dv,
     validate_nfe_key
-} from './theqatools_lib/wasm_tqt_lib.js';
+} from '../theqatools_lib/wasm_tqt_lib.js';
 
 (async function(){
     await init();
@@ -20,4 +20,4 @@ export function validateKey(accessKey) {
     return validate_nfe_key(accessKey);
 }
 
-export {NFe} from './theqatools_lib/wasm_tqt_lib.js';
+export {NFe} from '../theqatools_lib/wasm_tqt_lib.js';
