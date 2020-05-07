@@ -2,7 +2,7 @@ import init, {
     cnpj_is_valid,
     generate_cnpj,
     generate_cnpj_for_branch
-} from './theqatools_lib/wasm_tqt_lib.js';
+} from '../theqatools_lib/wasm_tqt_lib.js';
 
 (async function(){
     await init();
