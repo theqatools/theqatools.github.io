@@ -1,6 +1,6 @@
 import init, {
     next_i32
-} from './theqatools_lib/wasm_tqt_lib.js';
+} from '../theqatools_lib/wasm_tqt_lib.js';
 
 (async function(){
     await init();
