@@ -1,0 +1,93 @@
+.title {
+  height: 100%;
+}
+.title h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  height: 100%;
+  vertical-align: middle;
+  display: flex;
+  text-align: center;
+  align-items: center;
+}
+.title h1 a {
+  width: 100%;
+}
+.menu {
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  cursor: pointer;
+  z-index: 1;
+}
+.hamburguer {
+  position: relative;
+  display: block;
+  background: #555555;
+  width: 30px;
+  height: 2px;
+  top: 29px;
+  left: 15px;
+  transition: .25s ease-in-out;
+}
+.hamburguer:before,
+.hamburguer:after {
+  background: #555555;
+  content: '';
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transition: .25s ease-in-out;
+}
+.hamburguer:before {
+  top: -10px;
+}
+.hamburguer:after {
+  bottom: -10px;
+}
+input {
+  display: none;
+}
+
+input:checked ~ label .hamburguer {
+  transform: rotate(45deg);
+}
+input:checked ~ label .hamburguer:before {
+  transform: rotate(90deg);
+  top: 0;
+}
+input:checked ~ label .hamburguer:after {
+  transform: rotate(90deg);
+  bottom: 0;
+}
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100vh;
+  overflow:auto;
+  background-color: #ffffff;
+  -webkit-transition: width .25s ease-in-out;
+  -moz-transition: width .25s ease-in-out;
+  -o-transition: width .25s ease-in-out;
+  transition: width .25s ease-in-out, overflow 0s;
+  text-align: center;
+  padding-top: 3rem;
+  background-color: #D8F3EC;
+  color: #628D83;
+}
+nav .tool-options {
+  margin-bottom: 1rem;
+  line-height: 1.5rem;
+}
+nav .tool-options h2 {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+}
+nav.visible {
+  margin: 0;
+  overflow: auto;
+  width: 100vw;
+}
