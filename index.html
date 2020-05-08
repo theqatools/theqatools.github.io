@@ -1,58 +1,60 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-    <head>
-        <title>The QA Tools - Demo site</title>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
-        <link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="css/reset.css" />
-        <link rel="stylesheet" href="css/grid.css">
-        <link rel="stylesheet" href="css/site.css" />
-    </head>
-    <body onresize="onResize()">
-        <header>
-            <div class="container flex-grid">
-                <div class="menu-hamburguer">
-                    <input id="menu-hamburguer" type="checkbox" onclick="showMenu()">
-                    <label for="menu-hamburguer">
-                        <div class="menu">
-                            <span class="hamburguer"></span>
-                        </div>
-                    </label>
-                </div>
-                <div class="title grid-11">
-                    <h1><a href="index.html">The QA Tools - Demo site</a></h1>
-                </div>
-                <nav class="grid-5" id="menuNav">
-                    <div class="tool-options">
-                        <h2>CNPJ</h2>
-                        <ul>
-                            <li><a href="cnpjgerar.html">Gerar</a></li>
-                            <li><a href="cnpjvalidar.html">Validar</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="tool-options">
-                        <h2>Chave NFe</h2>
-                        <ul>
-                            <li><a href="nfegerar.html">Gerar</a></li>
-                            <li><a href="nfevalidar.html">Validar</a></li>
-                        </ul>
-                    </div>
-                </nav>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <title>The QA Tools - Demo site</title>
+  </head>
+  <body onresize="onResize()">
+    <header>
+      <div class="flex-grid">
+        <div class="menu-hamburguer">
+          <input id="menu-hamburguer" type="checkbox" onclick="showMenu()">
+          <label for="menu-hamburguer">
+            <div class="menu">
+              <span class="hamburguer"></span>
             </div>
-        </header>
-        <main class="container">
-            <div class="grid-16 wasm-box">
-                <img src="img/wasm-ferris.png" />
-            </div>
-            <div class="wasm-box">
-                <p>Ferramentas construídas com Rust + WebAssembly</p>
-            </div>
-        </main>
-        <footer>
-            <p>&copy; The QA Tools - <a href="desenvolvedores.html">Desenvolvedores</a></p>
-        </footer>
-        <script src="js/script.js"></script>
-    </body>
+          </label>
+        </div>
+        <div class="title grid-6">
+          <h1><a href="index.html">The QA Tools - Demo site</a></h1>
+        </div>
+        <nav class="grid-10" id="menuNav">
+          <div class="tool-options grid-3">
+            <h2>CNPJ</h2>
+            <ul>
+              <li><a href="cnpjgerar.html">Gerar</a></li>
+              <li><a href="cnpjvalidar.html">Validar</a></li>
+            </ul>
+          </div>
+          <div class="tool-options grid-3">
+            <h2>Chave NFe</h2>
+            <ul>
+              <li><a href="nfegerar.html">Gerar</a></li>
+              <li><a href="nfevalidar.html">Validar</a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <div class="wasm-box">
+        <img src="img/wasm-ferris.png" />
+      </div>
+      <div class="wasm-box">
+        <p>Ferramentas construídas com Rust + WebAssembly</p>
+      </div>
+    </main>
+    <footer>
+      <p>&copy; The QA Tools - <a href="desenvolvedores.html">Desenvolvedores</a></p>
+    </footer>
+    <script src="js/script.js"></script>
+  </body>
 </html>

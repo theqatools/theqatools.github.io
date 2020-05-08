@@ -1,0 +1,26 @@
+footer {
+  font-size: 13px;
+  width: 100%;
+  padding-top: 10px;
+}
+footer p {
+  color: #555555;
+  text-align: center;
+}
+footer p:link {
+  color: #555555;
+  text-decoration: none;
+}
+footer p a:visited {
+  color: #555555;
+  text-decoration: none;
+}
+
+footer p a:hover {
+  cursor: pointer;
+  color: #f05022
+}
+
+footer p a:active {
+  text-decoration: none;
+}
