@@ -4,14 +4,17 @@
         <title>The QA Tools - Demo site</title>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+        <link href="https://fonts.googleapis.com/css?family=Playfair+Display&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/reset.css" />
-        <link rel="stylesheet" href="css/grid.css">
-        <link rel="stylesheet" href="css/site.css" />
+        <link rel="stylesheet" href="css/base.css" />
+        <link rel="stylesheet" href="css/header.css">
+        <link rel="stylesheet" href="css/developers.css">
+        <link rel="stylesheet" href="css/footer.css">
     </head>
     <body onresize="onResize()">
         <header>
-            <div class="container flex-grid">
+            <div class="flex-grid">
                 <div class="menu-hamburguer">
                     <input id="menu-hamburguer" type="checkbox" onclick="showMenu()">
                     <label for="menu-hamburguer">
@@ -20,19 +23,18 @@
                         </div>
                     </label>
                 </div>
-                <div class="title grid-11">
+                <div class="title grid-6">
                     <h1><a href="index.html">The QA Tools - Demo site</a></h1>
                 </div>
-                <nav class="grid-5" id="menuNav">
-                    <div class="tool-options">
+                <nav class="grid-10" id="menuNav">
+                    <div class="tool-options grid-3">
                         <h2>CNPJ</h2>
                         <ul>
                             <li><a href="cnpjgerar.html">Gerar</a></li>
                             <li><a href="cnpjvalidar.html">Validar</a></li>
                         </ul>
                     </div>
-
-                    <div class="tool-options">
+                    <div class="tool-options grid-3">
                         <h2>Chave NFe</h2>
                         <ul>
                             <li><a href="nfegerar.html">Gerar</a></li>
@@ -42,28 +44,40 @@
                 </nav>
             </div>
         </header>
-        <main class="container">
-            <div class="desenvolvedores-area">
-                <div class="dev">
-                    <img class="dev-img" src="img/allan.jpeg" alt="Foto desenvolvedor Allan Silva" />
-                    <div class="dev-description">
-                        <h1>Allan Silva</h1>
-                        <p>Programador | C# .NET | Java | Python | Full STACK_OVERFLOW developer | Mozilla Contributor</p>
-                        <ul class="social-icons">
-                            <li><a href="https://github.com/allan-silva"><img src="img/github_ico.png" alt="Ícone do GitHub" /></a></li>
-                            <li><a href="https://www.linkedin.com/in/allan-t-silva/"><img src="img/linkedin_ico.png" alt="Ícone do LinkedIn" /></a></li>
-                        </ul>
+        <main>
+            <div class="desenvolvedores-area flex-grid">
+                <div class="dev grid-16">
+                    <div class="dev-photo">
+                        <img class="dev-img" src="img/allan.jpeg" alt="Foto desenvolvedor Allan Silva" />
+                    </div>
+                    <div class="dev-info">
+                        <div class="dev-description">
+                            <h1>Allan Silva</h1>
+                            <p>Programador | C# .NET | Java | Python | Full STACK_OVERFLOW developer | Mozilla Contributor</p>
+                        </div>
+                        <div class="dev-social">
+                            <ul class="social-icons">
+                                <li><a href="https://github.com/allan-silva"><img src="img/github_ico.png" alt="Ícone do GitHub" /></a></li>
+                                <li><a href="https://www.linkedin.com/in/allan-t-silva/"><img src="img/linkedin_ico.png" alt="Ícone do LinkedIn" /></a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-                <div class="dev">
-                    <img class="dev-img" src="img/joel.jpeg" alt="Foto desenvolvedor Joel Spinelli" />
-                    <div class="dev-description">
-                        <h1>Joel Spinelli</h1>
-                        <p>Desenvolvedor Node.js e front end</p>
-                        <ul class="social-icons">
-                            <li><a href="https://github.com/JoelSpinelli"><img src="img/github_ico.png" alt="Ícone do GitHub" /></a></li>
-                            <li><a href="https://www.linkedin.com/in/joelspinelli/"><img src="img/linkedin_ico.png" alt="Ícone do LinkedIn" /></a></li>
-                        </ul>
+                <div class="dev grid-16">
+                    <div class="dev-photo">
+                        <img class="dev-img" src="img/joel.jpg" alt="Foto desenvolvedor Joel Spinelli" />
+                    </div>
+                    <div class="dev-info">
+                        <div class="dev-description">
+                            <h1>Joel Spinelli</h1>
+                            <p>Desenvolvedor Node.js e Front End</p>
+                        </div>
+                        <div class="dev-social">
+                            <ul class="social-icons">
+                                <li><a href="https://github.com/JoelSpinelli"><img src="img/github_ico.png" alt="Ícone do GitHub" /></a></li>
+                                <li><a href="https://www.linkedin.com/in/joelspinelli/"><img src="img/linkedin_ico.png" alt="Ícone do LinkedIn" /></a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
