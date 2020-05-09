@@ -64,18 +64,18 @@ header h1 a:active {
 .hamburguer:after {
   bottom: -10px;
 }
-input {
+.menu-hamburguer input {
   display: none;
 }
 
-input:checked ~ label .hamburguer {
+.menu-hamburguer input:checked ~ label .hamburguer {
   transform: rotate(45deg);
 }
-input:checked ~ label .hamburguer:before {
+.menu-hamburguer input:checked ~ label .hamburguer:before {
   transform: rotate(90deg);
   top: 0;
 }
-input:checked ~ label .hamburguer:after {
+.menu-hamburguer input:checked ~ label .hamburguer:after {
   transform: rotate(90deg);
   bottom: 0;
 }

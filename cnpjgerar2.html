@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <title>The QA Tools - Demo site</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/cnpjGenerator.css">
+  <link rel="stylesheet" href="css/footer.css">
+</head>
+
+<body onresize="onResize()">
+  <header>
+    <div class="flex-grid">
+      <div class="menu-hamburguer">
+        <input id="menu-hamburguer" type="checkbox" onclick="showMenu()">
+        <label for="menu-hamburguer">
+          <div class="menu">
+            <span class="hamburguer"></span>
+          </div>
+        </label>
+      </div>
+      <div class="title grid-6">
+        <h1><a href="index.html">The QA Tools - Demo site</a></h1>
+      </div>
+      <nav class="grid-10" id="menuNav">
+        <div class="tool-options grid-3">
+          <h2>CNPJ</h2>
+          <ul>
+            <li><a href="cnpjgerar.html">Gerar</a></li>
+            <li><a href="cnpjvalidar.html">Validar</a></li>
+          </ul>
+        </div>
+        <div class="tool-options grid-3">
+          <h2>Chave NFe</h2>
+          <ul>
+            <li><a href="nfegerar.html">Gerar</a></li>
+            <li><a href="nfevalidar.html">Validar</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="input-cnpj-area">
+      <div class="input-data">
+        <div>
+          <label for="filial">
+            Filial:
+          </label>
+          <input type="number" id="filial" value="1" maxlength="4" minlength="1" class="big-input-text filial-text" />
+        </div>
+        <div class="gerar">
+          <a href="#" id="novo">Gerar</a>
+        </div>
+      </div>
+      <label for="cnpj">
+        <input placeholder="CNPJ" readonly maxlength="14" minlength="14" size="15" class="big-input-text cnpj-text" type="text" id="cnpj" />
+        <a href="#" id="copyCnpj">&#128203;</a>
+      </label>
+    </div>
+  </main>
+  <footer>
+    <p>&copy; The QA Tools - <a href="desenvolvedores.html">Desenvolvedores</a></p>
+  </footer>
+  <script src="js/script.js"></script>
+  <script type="module">
+    import { generateCnpjForBranch } from "./js/cnpj_utils.js";
+
+    function generate() {
+      let branch = document.getElementById("filial").value;
+      branch = branch.replace(/[^0-9]/g, "");
+
+      if (branch === "") {
+        branch = "1";
+        document.getElementById("filial").value = branch;
+      }
+
+      const branch_no = parseInt(branch, 10);
+
+      if (branch_no === 0) {
+        branch = "1";
+        document.getElementById("filial").value = branch;
+      }
+
+      document.getElementById("cnpj").value = generateCnpjForBranch(branch);
+    }
+
+    function novoOnClick() {
+      generate();
+      return false;
+    }
+    function copy() {
+      const input = document.getElementById("cnpj");
+      input.select();
+      document.execCommand("copy");
+    }
+
+    document.getElementById("novo").addEventListener('click', novoOnClick);
+    document.getElementById("copyCnpj").addEventListener('click', copy);
+    setTimeout(generate, 100);
+  </script>
+</body>
+
+</html>
