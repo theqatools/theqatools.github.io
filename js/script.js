@@ -15,3 +15,21 @@ function showMenu() {
   }
 
 }
+
+function getEl(id) {
+  return document.getElementById(id);
+}
+
+function setDisplay(id, value) {
+  getEl(id).style.display = value;
+}
+
+function addHandler(elName, event, handler) {
+  getEl(elName).addEventListener(event, handler);
+}
+
+function copy(id) {
+  const input = getEl(id);
+  input.select();
+  document.execCommand("copy");
+}
