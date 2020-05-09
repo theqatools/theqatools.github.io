@@ -88,7 +88,7 @@
 
             setTimeout(function() {
                 const today = new Date();
-                document.getElementById("mes").value = today.getMonth();
+                document.getElementById("mes").value = today.getMonth() + 1; //WTF, JS!?
                 document.getElementById("ano").value = today.getFullYear();
             }, 100);
         </script>
