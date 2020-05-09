@@ -184,6 +184,35 @@ footer {
     width: 100%;
 }
 
+.cnpj-area input, .cnpj-area select {
+    display: block;
+}
+
+.cnpj-area .valid-text {
+    font-size: 10px;
+}
+
+.cnpj-area .flex-grid {
+    margin: 5px 0;
+    padding: 5px 20px;
+}
+
+.cnpj-area label {
+    font-size: 20px;
+    font-weight: bold;
+    color: #555555;
+}
+
+.cnpj-area input, .cnpj-area select {
+    margin: 10px 2px 2px 0;
+}
+#cnpj-gerar-input {
+    width: 100%;
+    text-align: center;
+    height: 60px;
+    font-size: 35px;
+}
+
 .input-cnpj-area {
     margin: 20px auto;
     padding: 20px 60px;
@@ -224,6 +253,11 @@ span.invalid-text {
     display: none;
 }
 
+.copyable-input::selection {
+    background-color: #CCCCCC;
+    text-shadow: #A0A0A0 2px 3px;
+}
+
 .nfe-area {
     margin: 40px 70px;
 }
@@ -239,11 +273,6 @@ span.invalid-text {
     text-align: center;
     height: 60px;
     font-size: 35px;
-}
-
-#chave-nfe::selection {
-    background-color: #CCCCCC;
-    text-shadow: #A0A0A0 2px 3px;
 }
 
 #btn-gen-nfe {

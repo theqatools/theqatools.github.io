@@ -43,21 +43,22 @@
             </div>
         </header>
         <main>
-            <div class="input-cnpj-area">
-                <label for="cnpj">
-                    CNPJ:
-                    <input readonly maxlength="14" minlength="14" size="15" class="big-input-text cnpj-text" type="text" id="cnpj" />
-                    <a href="#" id="copyCnpj">&#128203;</a>
-                </label>
-            </div>
-            <div class="input-cnpj-area">
-                <label for="filial">
-                    Filial:
-                    <input type="number" id="filial" value="1" maxlength="4" minlength="1" class="big-input-text filial-text" />
-                </label>
-            </div>
-            <div class="input-cnpj-area">
-                <a href="#" style="font-size: 24px;" id="novo">&#8635;</a>
+            <div class="container cnpj-area">
+                <div class="flex-grid">
+                    <label for="filial" class="grid-1">
+                        Filial:
+                        <input type="number" id="filial" value="1" maxlength="4" minlength="1" class="filial-text" />
+                    </label>
+                        <a href="#" id="novo" class="grid-2" style="align-self: flex-end;">Gerar Novo</a>
+                </div>
+
+                <div class="flex-grid">
+                    <label for="cnpj-gerar-input" class="grid-5">
+                        CNPJ:
+                        <input readonly maxlength="14" minlength="14" size="15" class="cnpj-text copyable-input" type="text" id="cnpj-gerar-input" />
+                        <span id="valid-text-copy-cnpj" style="text-align: right;" class="valid-text">CNPJ copiado para área de transferência!</span>
+                    </label>
+                </div>
             </div>
         </main>
         <footer>
@@ -68,22 +69,22 @@
             import {generateCnpjForBranch} from "./js/cnpj_utils.js";
 
             function generate() {
-                let branch = document.getElementById("filial").value;
+                let branch = getEl("filial").value;
                 branch = branch.replace(/[^0-9]/g, "");
 
                 if (branch === "") {
                     branch = "1";
-                    document.getElementById("filial").value = branch;
+                    getEl("filial").value = branch;
                 }
 
                 const branch_no = parseInt(branch, 10);
 
                 if(branch_no === 0) {
                     branch = "1";
-                    document.getElementById("filial").value = branch;
+                    getEl("filial").value = branch;
                 }
 
-                document.getElementById("cnpj").value = generateCnpjForBranch(branch);
+                getEl("cnpj-gerar-input").value = generateCnpjForBranch(branch);
             }
 
             function novoOnClick() {
@@ -91,16 +92,17 @@
                 return false;
             }
             
-            function copy() {
-                const input = document.getElementById("cnpj");
-                input.select();
-                document.execCommand("copy");
+            function copyCnpj() {
+                copy("cnpj-gerar-input");
+                setDisplay("valid-text-copy-cnpj", "block");
             }
 
-            document.getElementById("novo").addEventListener('click', novoOnClick);
-            document.getElementById("copyCnpj").addEventListener('click', copy);
+            addHandler("novo", "click", novoOnClick);
+            addHandler("filial", "change", generate);
+            addHandler("cnpj-gerar-input", "mouseup", copyCnpj);
+            addHandler("cnpj-gerar-input", "blur",  e => setDisplay("valid-text-copy-cnpj", "none"));
             
-            setTimeout(generate, 100);
+            setTimeout(generate, 1000);
         </script>
     </body>
 </html>
