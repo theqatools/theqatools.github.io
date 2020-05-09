@@ -8,19 +8,6 @@
         <link rel="stylesheet" href="css/reset.css" />
         <link rel="stylesheet" href="css/grid.css">
         <link rel="stylesheet" href="css/site.css" />
-        <script type="module">
-            import {validateKey} from "./js/nfe_utils.js";
-
-
-            function addhandler(event) {
-                document.getElementById("cnpj").addEventListener(event, validateCnpj);
-            }
-
-            addhandler("paste");
-            addhandler("blur");
-            addhandler("keyup");
-            addhandler("input");
-        </script>
     </head>
     <body onresize="onResize()">
         <header>
@@ -56,15 +43,49 @@
             </div>
         </header>
         <main>
-            <div class="field-box">
-
+            <div class="nfe-area">
+                <div class="container flex-grid" style="border-bottom: none;">
+                    <label for="chave-nfe-validar">
+                        Chave NF-e
+                        <input type="text" maxlength="44" placeholder="Digite a chave da NF-e" id="chave-nfe-validar" />
+                        <span id="nfe-valid-text" class="valid-text" style="font-size: 24px;">Chave da NF-e válida</span>
+                        <span id="nfe-invalid-text" class="invalid-text" style="font-size: 24px;"></span>
+                        <a id="visualize-key-data" href="#" style="display: none;">Visualizar dados da chave</a>
+                        <a id="verify-authenticity" target="_blank" href="#" style="display: none;">Validar autenticidade</a>
+                    </label>
+                </div>
             </div>
-            <span id="valid-text" class="valid-text">CNPJ válido</span>
-            <span id="invalid-text" class="invalid-text">CNPJ inválido</span>
         </main>
         <footer>
             <p>&copy; The QA Tools - <a href="desenvolvedores.html">Desenvolvedores</a></p>
         </footer>
         <script src="js/script.js"></script>
+        <script type="module">
+            import {validateKey} from "./js/nfe_utils.js";
+
+            function validateNFe() {
+                const nfeValue = getEl("chave-nfe-validar").value;
+                const result = validateKey(nfeValue);
+                if(result.isValid) {
+                    setDisplay("nfe-valid-text", "block");
+                    setDisplay("visualize-key-data", "inline");
+                    setDisplay("verify-authenticity", "inline");
+                    setDisplay("nfe-invalid-text", "none");
+                    getEl("visualize-key-data").href= `nfegerar.html?nfe-vizualize=${nfeValue}`;
+                    getEl("verify-authenticity").href= `http://www.nfe.fazenda.gov.br/portal/consultaRecaptcha.aspx?tipoConsulta=completa&tipoConteudo=XbSeqxE8pl8=&nfe=${nfeValue}`;
+                } else {
+                    getEl("nfe-invalid-text").innerText = result.errorMessage;
+                    setDisplay("nfe-invalid-text", "block");
+                    setDisplay("nfe-valid-text", "none");
+                    setDisplay("visualize-key-data", "none");
+                    setDisplay("verify-authenticity", "none");
+                }
+            }
+
+            addHandler("chave-nfe-validar", "paste", validateNFe);
+            addHandler("chave-nfe-validar", "blur", validateNFe);
+            addHandler("chave-nfe-validar", "keyup", validateNFe);
+            addHandler("chave-nfe-validar", "input", validateNFe);
+        </script>
     </body>
 </html>
