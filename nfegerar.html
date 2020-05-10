@@ -165,9 +165,19 @@
         </footer>
         <script src="js/script.js"></script>
         <script type="module">
-            import {generateKey, NFe} from "./js/nfe_utils.js";
+            import {generateKey, validateKey, NFe} from "./js/nfe_utils.js";
             import {nextI32} from "./js/rnd_utils.js";
             import {cnpjIsValid, generateCnpj} from "./js/cnpj_utils.js";
+
+            function getNFeKeyInContext() {
+                let urlParams = new URLSearchParams(window.location.search);
+                return urlParams.get("nfe-vizualize");
+            }
+
+            function valKey(nfeKey) {
+                if (nfeKey) return validateKey(nfeKey);
+                return null;
+            }
 
             function generateNumericCode() {
                 getEl("codigoNumerico").value = nextI32(1, 99999999);
@@ -229,9 +239,29 @@
             addHandler("chave-nfe", "blur", e => setDisplay("valid-text-copy-nfe", "none"));
 
             setTimeout(function() {
-                const today = new Date();
-                document.getElementById("mes").value = today.getMonth() + 1; //WTF, JS!?
-                document.getElementById("ano").value = today.getFullYear();
+                let nfeKey = getNFeKeyInContext();
+                let validationResult = valKey(nfeKey);
+                if (validationResult && validationResult.isValid) {
+                    setDisplay("gerar-cnpj", "none");
+                    setDisplay("gerar-codigo", "none");
+                    setDisplay("gerar-nota", "none");
+                    setDisplay("btn-gen-nfe", "none");
+                    getEl("cnpj").value = validationResult.nfe.issuerCnpj;
+                    getEl("uf").value = validationResult.nfe.uf;
+                    getEl("modelo").value = validationResult.nfe.model;
+                    getEl("serie").value = validationResult.nfe.serie;
+                    getEl("numero").value = validationResult.nfe.nfeNumber;
+                    getEl("codigoNumerico").value = validationResult.nfe.code;
+                    getEl("tipoEmissao").value = validationResult.nfe.issueMode;
+                    getEl("chave-nfe").value = nfeKey;
+                    let yearMonth = validationResult.nfe.yearMonth;
+                    getEl("mes").value = parseInt(yearMonth.slice(2, 4), 10);
+                    getEl("ano").value = yearMonth.slice(0, 2);
+                } else {
+                    const today = new Date();
+                    document.getElementById("mes").value = today.getMonth() + 1; //WTF, JS!?
+                    document.getElementById("ano").value = today.getFullYear();
+                }
             }, 1000);
         </script>
     </body>
