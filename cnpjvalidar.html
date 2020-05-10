@@ -6,8 +6,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/reset.css" />
-        <link rel="stylesheet" href="css/grid.css">
-        <link rel="stylesheet" href="css/site.css" />
+        <link rel="stylesheet" href="css/base.css">
+        <link rel="stylesheet" href="css/header.css">
+        <link rel="stylesheet" href="css/cnpjValidar.css">
+        <link rel="stylesheet" href="css/footer.css">
         <script type="module">
             import {cnpjIsValid} from "./js/cnpj_utils.js";
 
@@ -46,7 +48,7 @@
     </head>
     <body onresize="onResize()">
         <header>
-            <div class="container flex-grid">
+            <div class="flex-grid">
                 <div class="menu-hamburguer">
                     <input id="menu-hamburguer" type="checkbox" onclick="showMenu()">
                     <label for="menu-hamburguer">
@@ -55,19 +57,18 @@
                         </div>
                     </label>
                 </div>
-                <div class="title grid-11">
+                <div class="title grid-6">
                     <h1><a href="index.html">The QA Tools - Demo site</a></h1>
                 </div>
-                <nav class="grid-5" id="menuNav">
-                    <div class="tool-options">
+                <nav class="grid-10" id="menuNav">
+                    <div class="tool-options grid-3">
                         <h2>CNPJ</h2>
                         <ul>
                             <li><a href="cnpjgerar.html">Gerar</a></li>
                             <li><a href="cnpjvalidar.html">Validar</a></li>
                         </ul>
                     </div>
-
-                    <div class="tool-options">
+                    <div class="tool-options grid-3">
                         <h2>Chave NFe</h2>
                         <ul>
                             <li><a href="nfegerar.html">Gerar</a></li>
@@ -79,14 +80,9 @@
         </header>
         <main>
             <div class="input-cnpj-area">
-                <label for="cnpj">
-                    CNPJ:
-                    <input maxlength="14" minlength="14" size="15" class="big-input-text cnpj-text" type="text" id="cnpj" placeholder="Digite o CNPJ" />
-                </label>
-
-                <span id="valid-text" class="valid-text">CNPJ válido</span>
-                <span id="invalid-text" class="invalid-text">CNPJ inválido</span>
-            </div>
+            <input maxlength="14" minlength="14" size="15" class="big-input-text cnpj-text" type="text" id="cnpj" placeholder="Digite o CNPJ" />
+            <span id="valid-text" class="valid-text">CNPJ válido</span>
+            <span id="invalid-text" class="invalid-text">CNPJ inválido</span>
         </main>
         <footer>
             <p>&copy; The QA Tools - <a href="desenvolvedores.html">Desenvolvedores</a></p>

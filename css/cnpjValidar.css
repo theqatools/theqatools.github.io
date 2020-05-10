@@ -1,0 +1,35 @@
+main {
+  padding: 2rem 1rem;
+}
+.input-cnpj-area {
+  height: 5rem;
+  margin-bottom: 2rem;
+}
+.input-cnpj-area input {
+  border: 1.5px solid #FFE08A;
+  border-radius: 5px;
+  color: #555555;
+  height: 100%;
+  width: 100%;
+  padding-left: .5rem;
+  margin-bottom: .5rem;
+  line-height: 2rem;
+  font-size: 1.5rem;
+  outline: transparent;
+}
+span.valid-text {
+    color: darkgreen;
+}
+span.invalid-text {
+    color: red;
+}
+.valid-text, .invalid-text {
+    display: none;
+}
+
+@media(min-width: 960px){
+  main {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}

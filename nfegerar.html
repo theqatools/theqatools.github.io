@@ -8,90 +8,6 @@
         <link rel="stylesheet" href="css/reset.css" />
         <link rel="stylesheet" href="css/grid.css" />
         <link rel="stylesheet" href="css/site.css" />
-        <script type="module">
-            import {validateKey, generateKey, NFe} from "./js/nfe_utils.js";
-            import {nextI32} from "./js/rnd_utils.js";
-            import {cnpjIsValid, generateCnpj} from "./js/cnpj_utils.js";
-
-            function setDisplay(id, value) {
-                getEl(id).style.display = value;
-            }
-
-            function addHandler(elName, event, handler) {
-                getEl(elName).addEventListener(event, handler);
-            }
-
-            function getEl(id) {
-                return document.getElementById(id);
-            }
-
-            function generateNumericCode() {
-                getEl("codigoNumerico").value = nextI32(1, 99999999);
-            }
-
-            function generateNFNumber() {
-                getEl("numero").value = nextI32(1, 999999999);
-            }
-
-            function genCnpj() {
-                getEl("cnpj").value = generateCnpj();
-                getEl("cnpj").focus();
-                getEl("cnpj").blur();
-            }
-
-            function valCnpj(e) {
-                let cnpj = e.target.value;
-                if (cnpj.length !== 14 || !cnpjIsValid(cnpj)) {
-                    setDisplay("invalid-cnpj-text", "block");
-                } else {
-                    setDisplay("invalid-cnpj-text", "none");
-                }
-            }
-
-            function getYearMonth() {
-                const month = getEl("mes").value;
-                const year = getEl("ano").value;
-
-                return year.substring(2, 4) + month.padStart(2, "0");
-            }
-
-            function genKey() {
-                const nfe = NFe.new();
-                nfe.issuerCnpj = getEl("cnpj").value;
-                nfe.yearMonth = getYearMonth();
-                nfe.uf = getEl("uf").value;
-                nfe.model = getEl("modelo").value;
-                nfe.serie = getEl("serie").value;
-                nfe.nfeNumber = getEl("numero").value;
-                nfe.code = getEl("codigoNumerico").value;
-                nfe.issueMode = getEl("tipoEmissao").value;
-                getEl("chave-nfe").value = generateKey(nfe);
-            }
-
-            function copyNFe() {
-                const input = document.getElementById("chave-nfe");
-                input.select();
-                document.execCommand("copy");
-                setDisplay("valid-text-copy-nfe", "block")
-            }
-
-            addHandler("gerar-codigo", "click", generateNumericCode);
-            addHandler("gerar-nota", "click", generateNFNumber);
-            addHandler("gerar-cnpj", "click", genCnpj);
-            addHandler("cnpj", "paste", valCnpj);
-            addHandler("cnpj", "blur", valCnpj);
-            addHandler("cnpj", "keyup", valCnpj);
-            addHandler("cnpj", "input", valCnpj);
-            addHandler("btn-gen-nfe", "click", genKey);
-            addHandler("chave-nfe", "mouseup", copyNFe);
-            addHandler("chave-nfe", "blur", e => setDisplay("valid-text-copy-nfe", "none"));
-
-            setTimeout(function() {
-                const today = new Date();
-                document.getElementById("mes").value = today.getMonth();
-                document.getElementById("ano").value = today.getFullYear();
-            }, 100);
-        </script>
     </head>
     <body onresize="onResize()">
         <header>
@@ -232,7 +148,7 @@
                     <div class="grid-12">
                         <label for="chave-nfe">
                             Chave NF-e
-                            <input type="text" placeholder="Chave NF-e" id="chave-nfe" readonly />
+                            <input type="text" placeholder="Chave NF-e" class="copyable-input" id="chave-nfe" readonly />
                             <span id="valid-text-copy-nfe" style="text-align: right;" class="valid-text">Chave copiada para área de transferência!</span>
                         </label>
                     </div>
@@ -248,5 +164,105 @@
             <p>&copy; The QA Tools - <a href="desenvolvedores.html">Desenvolvedores</a></p>
         </footer>
         <script src="js/script.js"></script>
+        <script type="module">
+            import {generateKey, validateKey, NFe} from "./js/nfe_utils.js";
+            import {nextI32} from "./js/rnd_utils.js";
+            import {cnpjIsValid, generateCnpj} from "./js/cnpj_utils.js";
+
+            function getNFeKeyInContext() {
+                let urlParams = new URLSearchParams(window.location.search);
+                return urlParams.get("nfe-vizualize");
+            }
+
+            function valKey(nfeKey) {
+                if (nfeKey) return validateKey(nfeKey);
+                return null;
+            }
+
+            function generateNumericCode() {
+                getEl("codigoNumerico").value = nextI32(1, 99999999);
+            }
+
+            function generateNFNumber() {
+                getEl("numero").value = nextI32(1, 999999999);
+            }
+
+            function genCnpj() {
+                getEl("cnpj").value = generateCnpj();
+                getEl("cnpj").focus();
+                getEl("cnpj").blur();
+            }
+
+            function valCnpj(e) {
+                let cnpj = e.target.value;
+                if (cnpj.length !== 14 || !cnpjIsValid(cnpj)) {
+                    setDisplay("invalid-cnpj-text", "block");
+                } else {
+                    setDisplay("invalid-cnpj-text", "none");
+                }
+            }
+
+            function getYearMonth() {
+                const month = getEl("mes").value;
+                const year = getEl("ano").value;
+
+                return year.substring(2, 4) + month.padStart(2, "0");
+            }
+
+            function genKey() {
+                const nfe = NFe.new();
+                nfe.issuerCnpj = getEl("cnpj").value;
+                nfe.yearMonth = getYearMonth();
+                nfe.uf = getEl("uf").value;
+                nfe.model = getEl("modelo").value;
+                nfe.serie = getEl("serie").value;
+                nfe.nfeNumber = getEl("numero").value;
+                nfe.code = getEl("codigoNumerico").value;
+                nfe.issueMode = getEl("tipoEmissao").value;
+                getEl("chave-nfe").value = generateKey(nfe);
+            }
+
+            function copyNFe() {
+                copy("chave-nfe");
+                setDisplay("valid-text-copy-nfe", "block")
+            }
+
+            addHandler("gerar-codigo", "click", generateNumericCode);
+            addHandler("gerar-nota", "click", generateNFNumber);
+            addHandler("gerar-cnpj", "click", genCnpj);
+            addHandler("cnpj", "paste", valCnpj);
+            addHandler("cnpj", "blur", valCnpj);
+            addHandler("cnpj", "keyup", valCnpj);
+            addHandler("cnpj", "input", valCnpj);
+            addHandler("btn-gen-nfe", "click", genKey);
+            addHandler("chave-nfe", "mouseup", copyNFe);
+            addHandler("chave-nfe", "blur", e => setDisplay("valid-text-copy-nfe", "none"));
+
+            setTimeout(function() {
+                let nfeKey = getNFeKeyInContext();
+                let validationResult = valKey(nfeKey);
+                if (validationResult && validationResult.isValid) {
+                    setDisplay("gerar-cnpj", "none");
+                    setDisplay("gerar-codigo", "none");
+                    setDisplay("gerar-nota", "none");
+                    setDisplay("btn-gen-nfe", "none");
+                    getEl("cnpj").value = validationResult.nfe.issuerCnpj;
+                    getEl("uf").value = validationResult.nfe.uf;
+                    getEl("modelo").value = validationResult.nfe.model;
+                    getEl("serie").value = validationResult.nfe.serie;
+                    getEl("numero").value = validationResult.nfe.nfeNumber;
+                    getEl("codigoNumerico").value = validationResult.nfe.code;
+                    getEl("tipoEmissao").value = validationResult.nfe.issueMode;
+                    getEl("chave-nfe").value = nfeKey;
+                    let yearMonth = validationResult.nfe.yearMonth;
+                    getEl("mes").value = parseInt(yearMonth.slice(2, 4), 10);
+                    getEl("ano").value = yearMonth.slice(0, 2);
+                } else {
+                    const today = new Date();
+                    document.getElementById("mes").value = today.getMonth() + 1; //WTF, JS!?
+                    document.getElementById("ano").value = today.getFullYear();
+                }
+            }, 1000);
+        </script>
     </body>
 </html>
