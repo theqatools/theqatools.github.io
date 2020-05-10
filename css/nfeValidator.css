@@ -41,8 +41,6 @@ span.invalid-text {
 .links-extras a:hover {
   text-decoration: underline;
 }
-
-
 @media(min-width: 960px){
   main {
     padding-left: 0;
