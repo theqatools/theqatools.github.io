@@ -25,7 +25,11 @@ function setDisplay(id, value) {
 }
 
 function addHandler(elName, event, handler) {
-  getEl(elName).addEventListener(event, handler);
+  try{
+    getEl(elName).addEventListener(event, handler);
+  }catch {
+    console.log(elName)
+  }
 }
 
 function copy(id) {

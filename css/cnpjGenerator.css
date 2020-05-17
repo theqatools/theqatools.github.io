@@ -62,6 +62,16 @@ main {
   cursor: pointer;
   outline: transparent;
 }
+.big-input-text {
+  color: #555555;
+}
+.valid-text {
+  margin-top: 10px;
+  color: darkgreen;
+}
+#valid-text-copy-cnpj {
+  display: none;
+}
 @media(min-width: 960px){
   main {
     padding-left: 0;

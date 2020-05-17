@@ -28,7 +28,13 @@
             }
 
             function validateCnpj(e) {
+                setDisplay("valid-text", "none");
+                setDisplay("invalid-text", "none");
+
                 let cnpj = e.target.value;
+                if(!cnpj)
+                    return;
+
                 if (cnpj.length === 14 && cnpjIsValid(cnpj)) {
                     setValid();
                 } else {
