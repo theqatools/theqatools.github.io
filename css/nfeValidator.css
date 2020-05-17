@@ -41,6 +41,12 @@ span.invalid-text {
 .links-extras a:hover {
   text-decoration: underline;
 }
+#nfe-invalid-text,
+#nfe-valid-text,
+#visualize-key-data,
+#verify-authenticity {
+  display: none;
+}
 @media(min-width: 960px){
   main {
     padding-left: 0;

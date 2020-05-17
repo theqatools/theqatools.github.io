@@ -66,6 +66,14 @@
 
             function validateNFe() {
                 const nfeValue = getEl("chave-nfe-validar").value;
+                setDisplay("nfe-invalid-text", "none");
+                setDisplay("nfe-valid-text", "none");
+                setDisplay("visualize-key-data", "none");
+                setDisplay("verify-authenticity", "none");
+
+                if(!nfeValue)
+                    return;
+
                 const result = validateKey(nfeValue);
                 if(result.isValid) {
                     setDisplay("nfe-valid-text", "block");

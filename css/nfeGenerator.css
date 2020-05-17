@@ -17,6 +17,7 @@ main {
   border-radius: 5px;
   height: 100%;
   outline: none;
+  margin-right: 1rem;
 }
 .rdn-gen-link {
   border: 1.5px solid #74B4E8;
@@ -24,7 +25,6 @@ main {
   border-radius: 5px;
   background-color: #FFFFFF;
   height: 100%;
-  margin-left: 1rem;
 }
 .rdn-gen-link:hover {
   cursor: pointer;
@@ -51,6 +51,7 @@ main {
 }
 .year-month-group {
   height: 100%;
+  text-align: right;
 }
 .year-month-group label{
   line-height: 100%;
@@ -66,6 +67,90 @@ main {
 }
 .year-month-group select:hover {
   cursor: pointer;
+}
+
+.full-year-size {
+  border: .25rem solid #FFE08A;
+  border-radius: 5px;
+  color: #555555;
+  height: 100%;
+  text-align: center;
+}
+
+.modelo-input {
+  height: 100%;
+}
+.modelo-input label {
+  margin-right: .5rem;
+}
+.modelo-input input {
+  border: .25rem solid #FFE08A;
+  border-radius: 5px;
+  color: #555555;
+  height: 100%;
+  text-align: center;
+}
+.serie-input {
+  height: 100%;
+}
+.serie-input label {
+  margin-right: .5rem;
+}
+.serie-input input {
+  border: .25rem solid #FFE08A;
+  border-radius: 5px;
+  color: #555555;
+  height: 100%;
+  text-align: center;
+}
+
+.numero-nota-input {
+  height: 100%;
+}
+.numero-nota-input label {
+  margin-right: .5rem;
+}
+.numero-nota-input input {
+  border: .25rem solid #FFE08A;
+  border-radius: 5px;
+  color: #555555;
+  height: 100%;
+  text-align: center;
+}
+.codNum-input {
+  height: 100%;
+  text-align: center;
+  text-align: right;
+}
+.codNum-input label {
+  margin-right: .5rem;
+}
+.codNum-input input {
+  border: .25rem solid #FFE08A;
+  border-radius: 5px;
+  color: #555555;
+  height: 100%;
+  text-align: center;
+}
+.emissao {
+  height: 3rem;
+}
+.emissao-select {
+  height: 100%;
+}
+.emissao-select label {
+  line-height: 100%;
+}
+.emissao-select select {
+  border: .25rem solid #FFE08A;
+  border-radius: 5px;
+  background-color: #FFFFFF;
+  color: #555555;
+  height: 100%;
+  outline: none;
+}
+.emissao-button {
+  height: 100%;
 }
 
 .flex-grid {

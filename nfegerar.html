@@ -47,14 +47,14 @@
             <div class="nfe-area">
                 <span id="invalid-cnpj-text" class="invalid-text">CNPJ inválido</span>
                 <div class="flex-grid info">
-                    <div class="grid-5 gerar-cnpj">
+                    <div class="grid-4 gerar-cnpj">
                         <div class="gerar-cnpj-input">
                             <input placeholder="CNPJ" type="text" id="cnpj" minlength="14" maxlength="14" required />
                         </div>
                         <button id="gerar-cnpj" class="rdn-gen-link">Gerar CNPJ</button>
                     </div>
 
-                    <div class="grid-5 uf-select">
+                    <div class="grid-6 uf-select">
                         <label for="uf">
                             UF
                         </label>
@@ -105,37 +105,41 @@
                             <option value="11">Novembro</option>
                             <option value="12">Dezembro</option>
                         </select>
-                        <input style="width: 4ch;" class="full-year-size" type="text" id="ano" minlength="4" maxlength="4" />
+                        <input class="full-year-size" type="text" id="ano" minlength="4" maxlength="4" />
                     </div>
                 </div>
 
-                <div class="flex-grid">
-                    <label for="modelo" class="grid-4">
-                        Modelo
-                        <input type="text" style="width: 2ch;" id="modelo" value="55" minlength="2" maxlength="2" required />
-                    </label>
+                <div class="flex-grid info">
+                    <div class="grid-4 modelo-input">
+                        <label for="modelo">
+                            Modelo
+                        </label>
+                        <input type="text" id="modelo" value="55" minlength="2" maxlength="2" required />
+                    </div>
 
-                    <label for="serie" class="grid-4">
-                        Série
-                        <input type="text" style="width: 3ch;" id="serie" value="001" minlength="3" maxlength="3" required />
-                    </label>
+                    <div class="grid-4 serie-input">
+                        <label for="serie">
+                            Série
+                        </label>
+                        <input type="text" id="serie" value="001" minlength="3" maxlength="3" required />
+                    </div>
 
-                    <label for="numero" class="grid-4">
-                        Número da nota
-                        <input type="text" style="width: 9ch;" id="numero" minlength="9" maxlength="9" required />
-                        <a href="#" class="rdn-gen-link" id="gerar-nota">Gerar Número</a>
-                    </label>
+                    <div class="grid-4 numero-nota-input">
+                        <input placeholder="Numero da Nota" type="text" id="numero" minlength="9" maxlength="9" required />
+                        <button class="rdn-gen-link" id="gerar-nota">Gerar Número</button>
+                    </div>
 
-                    <label for="codigoNumerico" class="grid-4">
-                        Código numérico
-                        <input type="text" style="width: 9ch;" id="codigoNumerico" minlength="8" maxlength="8" required />
-                        <a href="#" class="rdn-gen-link" id="gerar-codigo">Gerar Código</a>
-                    </label>
+                    <div class="grid-4 codNum-input">
+                        <input placeholder="Código numérico" type="text" id="codigoNumerico" minlength="8" maxlength="8" required />
+                        <button href="#" class="rdn-gen-link" id="gerar-codigo">Gerar Código</button>
+                    </div>
                 </div>
 
-                <div class="flex-grid">
-                    <label for="tipoEmissao" class="grid-2">
-                        Forma de emissão
+                <div class="flex-grid emissao">
+                    <div class="grid-4 emissao-select">
+                        <label for="tipoEmissao">
+                            Forma de emissão
+                        </label>
                         <select id="tipoEmissao">
                             <option value="1" selected>Normal</option>
                             <option value="2">Contingência FS</option>
@@ -143,18 +147,18 @@
                             <option value="4">Contingência DPEC</option>
                             <option value="5">Contingência FS-DA</option>
                         </select>
-                    </label>
-
-                    <div class="grid-12">
-                        <label for="chave-nfe">
-                            Chave NF-e
-                            <input type="text" placeholder="Chave NF-e" class="copyable-input" id="chave-nfe" readonly />
-                            <span id="valid-text-copy-nfe" style="text-align: right;" class="valid-text">Chave copiada para área de transferência!</span>
-                        </label>
                     </div>
+                    <div class="grid-12 emissao-button">
+                        <button class="rdn-gen-link" id="btn-gen-nfe">Gerar Chave de Acesso</button>
+                    </div>
+
                 </div>
                 <div class="grid-16">
-                    <button id="btn-gen-nfe">Gerar Chave de Acesso</button>
+                    <label for="chave-nfe">
+                        Chave NF-e
+                        <input type="text" placeholder="Chave NF-e" class="copyable-input" id="chave-nfe" readonly />
+                        <span id="valid-text-copy-nfe" style="text-align: right;" class="valid-text">Chave copiada para área de transferência!</span>
+                    </label>
                 </div>
             </div>
             <span id="valid-text" class="valid-text">CNPJ válido</span>
