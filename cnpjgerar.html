@@ -45,23 +45,21 @@
       </nav>
     </div>
   </header>
-  <main>
-    <div class="input-cnpj-area">
-      <div class="input-data">
-        <div>
-          <label for="filial">
-            Filial:
-          </label>
-          <input type="number" id="filial" value="1" maxlength="4" minlength="1" class="big-input-text filial-text" />
-        </div>
+  <main >
+    <div class="flex-grid input-cnpj-area">
+      <div class="input-data grid-5">
+        <label for="filial">
+          Filial:
+        </label>
+        <input type="number" id="filial" value="1" maxlength="4" minlength="1" class="big-input-text filial-text" />
         <div class="gerar">
           <button id="novo">Gerar</button>
         </div>
       </div>
-      <div class="generated">
+      <div class="grid-16 generated input-data lg">
         <input placeholder="CNPJ" readonly maxlength="14" minlength="14" size="15" class="big-input-text cnpj-text" type="text" id="cnpj-gerar-input"  />
       </div>
-      <span id="valid-text-copy-cnpj" class="valid-text">CNPJ copiado para área de transferência!</span>
+      <span id="valid-text-copy-cnpj" class="grid-16 valid-text">CNPJ copiado para área de transferência!</span>
     </div>
   </main>
   <footer>

@@ -2,83 +2,24 @@ main {
   padding: 2rem 1rem;
 }
 .input-data {
-  height: 3rem;
-  display: flex;
-  margin-bottom: 2rem;
-}
-.input-data label {
-  color: #555555;
-  font-size: 1.2rem;
-}
-.input-data input {
-  border: 1.5px solid #FFE08A;
-  color: #555555;
-  padding-left: .5rem;
-  padding-right: .5rem;
-  height: 100%;
-  border-radius: 5px;
-  line-height: 2rem;
-  outline: transparent;
-}
-.gerar {
-  margin-left: 2rem;
-  width: 4rem;
-  height: 100%;
-}
-.gerar button {
-  border: 1.5px solid #74B4E8;
-  color: #74B4E8;
-  border-radius: 5px;
-  background-color: #FFFFFF;
-  text-align: center;
-  vertical-align: middle;
-  height: 100%;
-  width: 100%;
-}
-.gerar button:hover {
-  cursor: pointer;
-  color: #FFFFFF;
-  background-color: #74B4E8;
-}
-.generated {
-  border: 1.5px solid #FFE08A;
-  border-radius: 5px;
-  width: 100%;
-  display: flex;
-  height: 3rem;
-  padding: 2px 2px 2px 1rem;
+  margin-bottom: 1rem;
 }
 .generated input {
-  height: 100%;
-  border: none;
-  width: 100%;
-  outline: transparent;
-}
-.generated button {
-  width: 3rem;
-  height: 100%;
-  background-color: #FFFFFF;
-  border: none;
-  cursor: pointer;
-  outline: transparent;
+  text-align: center;
 }
 .big-input-text {
   color: #555555;
 }
 .valid-text {
-  margin-top: 10px;
   color: darkgreen;
 }
 #valid-text-copy-cnpj {
+  text-align: right;
   display: none;
 }
 @media(min-width: 960px){
   main {
     padding-left: 0;
     padding-right: 0;
-  }
-  .generated {
-    height: 5rem;
-    font-size: 2rem;
   }
 }

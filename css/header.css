@@ -25,7 +25,6 @@ header h1 a:visited {
 
 header h1 a:hover {
   cursor: pointer;
-  color: #FFE08A
 }
 
 header h1 a:active {
@@ -93,13 +92,13 @@ nav {
   transition: width .25s ease-in-out, overflow 0s;
   text-align: center;
   padding-top: 3rem;
-  color: #FFE08A;
 }
 nav .tool-options {
   margin-bottom: 1rem;
   line-height: 1.5rem;
 }
 nav .tool-options h2 {
+  border-bottom: 1px solid #555555;
   font-size: 1.2rem;
   margin-bottom: 10px;
 }
@@ -162,8 +161,7 @@ header h1 a:active {
     line-height: 1.5rem;
   }
   .tool-options ul li a:hover {
-    border: 1.5px solid #FFE08A;
-    color: #FFE08A;
+    border: 1.5px solid #555555;
     border-radius: 5px;
   }
 }

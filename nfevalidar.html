@@ -44,17 +44,15 @@
                 </nav>
             </div>
         </header>
-        <main>
-            <div class="nfe-area">
-                <div class="container flex-grid" style="border-bottom: none;">
-                    <input type="text" maxlength="44" placeholder="Digite a chave da NF-e" id="chave-nfe-validar" />
-                    <span id="nfe-valid-text" class="valid-text" style="font-size: 24px;">Chave da NF-e válida</span>
-                    <span id="nfe-invalid-text" class="invalid-text" style="font-size: 24px;"></span>
-                    <div class="links-extras">
-                        <a id="visualize-key-data" href="#" >Visualizar dados da chave</a>
-                        <a id="verify-authenticity" target="_blank" href="#" >Validar autenticidade</a>
-                    </div>
-                </div>
+        <main class="grid-flex">
+            <div class="grid-16 input-data lg">
+                <input type="text" maxlength="44" placeholder="Digite a chave da NF-e" id="chave-nfe-validar" />
+            </div>
+            <span id="nfe-valid-text" class="grid-16 valid-text">Chave da NF-e válida</span>
+            <span id="nfe-invalid-text" class="grid-16 invalid-text"></span>
+            <div class="links-extras grid-16">
+                <a id="visualize-key-data" href="#" >Visualizar dados da chave</a>
+                <a id="verify-authenticity" target="_blank" href="#" >Validar autenticidade</a>
             </div>
         </main>
         <footer>

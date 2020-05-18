@@ -44,20 +44,18 @@
             </div>
         </header>
         <main>
-            <div class="nfe-area">
-                <span id="invalid-cnpj-text" class="invalid-text">CNPJ inválido</span>
-                <div class="flex-grid info">
-                    <div class="grid-4 gerar-cnpj">
-                        <div class="gerar-cnpj-input">
-                            <input placeholder="CNPJ" type="text" id="cnpj" minlength="14" maxlength="14" required />
-                        </div>
+            <div class="flex-grid">
+                <div class="grid-4 p-r-1 m-b-1">
+                    <div class="input-data">
+                        <input placeholder="CNPJ" type="text" id="cnpj" minlength="14" maxlength="14" required />
                         <button id="gerar-cnpj" class="rdn-gen-link">Gerar CNPJ</button>
                     </div>
+                    <!-- <span id="invalid-cnpj-text" class="invalid-text">CNPJ inválido</span> -->
+                </div>
 
-                    <div class="grid-6 uf-select">
-                        <label for="uf">
-                            UF
-                        </label>
+                <div class="grid-6 p-r-1 m-b-1">
+                    <div class="input-data">
+                        <label for="uf">UF: </label>
                         <select id="uf" required>
                             <option value="11">Rondônia</option>
                             <option value="12">Acre</option>
@@ -88,10 +86,12 @@
                             <option value="53">Distrito Federal</option>
                         </select>
                     </div>
+                </div>
 
-                    <div class="grid-6 year-month-group">
-                        <label>Mês/Ano emissão</label>
-                        <select id="mes" required>
+                <div class="grid-6 m-b-1">
+                    <div class="input-data">
+                        <label for="mes">Mês/Ano emissão: </label>
+                        <select id="mes" name="mes" required>
                             <option value="1">Janeiro</option>
                             <option value="2">Fevereiro</option>
                             <option value="3">Março</option>
@@ -109,34 +109,40 @@
                     </div>
                 </div>
 
-                <div class="flex-grid info">
-                    <div class="grid-4 modelo-input">
+                <div class="grid-4 p-r-1 m-b-1">
+                    <div class=input-data>
                         <label for="modelo">
-                            Modelo
+                            Modelo:
                         </label>
                         <input type="text" id="modelo" value="55" minlength="2" maxlength="2" required />
                     </div>
+                </div>
 
-                    <div class="grid-4 serie-input">
+                <div class="grid-4 p-r-1 m-b-1">
+                    <div class="input-data">
                         <label for="serie">
-                            Série
+                            Série:
                         </label>
                         <input type="text" id="serie" value="001" minlength="3" maxlength="3" required />
                     </div>
+                </div>
 
-                    <div class="grid-4 numero-nota-input">
+                <div class="grid-4 p-r-1 m-b-1">
+                    <div class="input-data">
                         <input placeholder="Numero da Nota" type="text" id="numero" minlength="9" maxlength="9" required />
                         <button class="rdn-gen-link" id="gerar-nota">Gerar Número</button>
                     </div>
+                </div>
 
-                    <div class="grid-4 codNum-input">
+                <div class="grid-4 m-b-1">
+                    <div class="input-data">
                         <input placeholder="Código numérico" type="text" id="codigoNumerico" minlength="8" maxlength="8" required />
                         <button href="#" class="rdn-gen-link" id="gerar-codigo">Gerar Código</button>
                     </div>
                 </div>
 
-                <div class="flex-grid emissao">
-                    <div class="grid-4 emissao-select">
+                <div class="grid-16 m-b-1">
+                    <div class="input-data">
                         <label for="tipoEmissao">
                             Forma de emissão
                         </label>
@@ -147,22 +153,19 @@
                             <option value="4">Contingência DPEC</option>
                             <option value="5">Contingência FS-DA</option>
                         </select>
-                    </div>
-                    <div class="grid-12 emissao-button">
                         <button class="rdn-gen-link" id="btn-gen-nfe">Gerar Chave de Acesso</button>
                     </div>
-
                 </div>
-                <div class="grid-16">
-                    <label for="chave-nfe">
-                        Chave NF-e
+                <div class="grid-16 m-b-1">
+                    <div class="input-data lg">
+                        <label for="chave-nfe">
+                            Chave NF-e
+                        </label>
                         <input type="text" placeholder="Chave NF-e" class="copyable-input" id="chave-nfe" readonly />
-                        <span id="valid-text-copy-nfe" style="text-align: right;" class="valid-text">Chave copiada para área de transferência!</span>
-                    </label>
+                    </div>
                 </div>
             </div>
-            <span id="valid-text" class="valid-text">CNPJ válido</span>
-            <span id="invalid-text" class="invalid-text">CNPJ inválido</span>
+            <span id="valid-text-copy-nfe" style="text-align: right;" class="valid-text">Chave copiada para área de transferência!</span>
         </main>
         <footer>
             <p>&copy; The QA Tools - <a href="desenvolvedores.html">Desenvolvedores</a></p>
@@ -198,11 +201,14 @@
             }
 
             function valCnpj(e) {
+                setDisplay("invalid-cnpj-text", "none");
+
                 let cnpj = e.target.value;
+
+                if (!cnpj) { return ;}
+
                 if (cnpj.length !== 14 || !cnpjIsValid(cnpj)) {
                     setDisplay("invalid-cnpj-text", "block");
-                } else {
-                    setDisplay("invalid-cnpj-text", "none");
                 }
             }
 
