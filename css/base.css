@@ -29,33 +29,20 @@ footer {
 .grid-9, .grid-10, .grid-11, .grid-12,
 .grid-13, .grid-14, .grid-15, .grid-16 {
   align-self: flex-start;
-}
-.mobile-1, .mobile-2, .mobile-3 {
-  align-items: flex-start;
+  margin-left: .25rem;
 }
 .grid-1, .grid-2, .grid-3, .grid-4, .grid-5, .grid-6, .grid-7, .grid-8,
 .grid-9, .grid-10, .grid-11, .grid-12, .grid-13, .grid-14, .grid-15, .grid-16 {
-  flex: 0 0 calc(100%);
-  max-width: 0 0 calc(100%);
-}
-.mobile-1 {
-  flex: 0 0 calc(20%);
-  max-width: 0 0 calc(20%);
-}
-.mobile-2{
-  flex: 0 0 calc(25%);
-  max-width: 0 0 calc(25%);
-}
-.mobile-3 {
-  flex: 0 0 calc(50%);
-  max-width: 0 0 calc(50%);
+  flex: 0 0 calc(100% - .25rem);
+  max-width: 0 0 calc(100% - .25rem);
 }
 
 .input-data {
   display: flex;
   border: .1rem solid #555555;
   border-radius: 3px;
-  height: 2rem;
+  height: 3rem;
+  font-size: 1rem;
 }
 .input-data.lg {
   height: 5rem;
@@ -64,11 +51,13 @@ footer {
 .input-data label {
   margin: 0 .5rem;
   align-self: center;
+  color: #555555;
 }
 .input-data input {
   border: none;
   height: 100%;
   flex-grow: 1;
+  color: #555555;
 }
 .input-data select {
   border: none;
@@ -83,8 +72,8 @@ footer {
 .input-data button {
   border: none;
   border-left: .1rem solid #555555;
-  height: 100%;
   color: #555555;
+  height: 100%;
   background-color: transparent;
 }
 .input-data button:hover {
@@ -92,84 +81,73 @@ footer {
   color: #FFFFFF;
   background-color: #555555;
 }
-
-@media(min-width: 630px){
-}
-
 @media(min-width: 960px){
   header, main, footer {
     width: 90vw;
     margin: 0 auto;
   }
   .grid-1 {
-    flex: 0 0 calc(6.25%);
-    max-width: 0 0 calc(6.25%);
+    flex: 0 0 calc(6.25% - .25rem);
+    max-width: 0 0 calc(6.25% - .25rem);
   }
   .grid-2 {
-    flex: 0 0 calc(12.5%);
-    max-width: 0 0 calc(12.5%);
+    flex: 0 0 calc(12.5% - .25rem);
+    max-width: 0 0 calc(12.5% - .25rem);
   }
   .grid-3 {
-    flex: 0 0 calc(18.75%);
-    max-width: 0 0 calc(18.75%);
+    flex: 0 0 calc(18.75% - .25rem);
+    max-width: 0 0 calc(18.75% - .25rem);
   }
   .grid-4 {
-    flex: 0 0 calc(25%);
-    max-width: 0 0 calc(25%);
+    flex: 0 0 calc(25% - .25rem);
+    max-width: 0 0 calc(25% - .25rem);
   }
   .grid-5 {
-    flex: 0 0 calc(31.25%);
-    max-width: 0 0 calc(31.25%);
+    flex: 0 0 calc(31.25% - .25rem);
+    max-width: 0 0 calc(31.25% - .25rem);
   }
   .grid-6 {
-    flex: 0 0 calc(37.5%);
-    max-width: 0 0 calc(37.5%);
+    flex: 0 0 calc(37.5% - .25rem);
+    max-width: 0 0 calc(37.5% - .25rem);
   }
   .grid-7 {
-    flex: 0 0 calc(43.75%);
-    max-width: 0 0 calc(43.75%);
+    flex: 0 0 calc(43.75% - .25rem);
+    max-width: 0 0 calc(43.75% - .25rem);
   }
   .grid-8 {
-    flex: 0 0 calc(50%);
-    max-width: 0 0 calc(50%);
+    flex: 0 0 calc(50% - .25rem);
+    max-width: 0 0 calc(50% - .25rem);
   }
   .grid-9 {
-    flex: 0 0 calc(56.25%);
-    max-width: 0 0 calc(56.25%);
+    flex: 0 0 calc(56.25% - .25rem);
+    max-width: 0 0 calc(56.25% - .25rem);
   }
   .grid-10 {
-    flex: 0 0 calc(62.5%);
-    max-width: 0 0 calc(62.5%);
+    flex: 0 0 calc(62.5% - .25rem);
+    max-width: 0 0 calc(62.5% - .25rem);
   }
   .grid-11 {
-    flex: 0 0 calc(68.75%);
-    max-width: 0 0 calc(68.75%);
+    flex: 0 0 calc(68.75% - .25rem);
+    max-width: 0 0 calc(68.75% - .25rem);
   }
   .grid-12 {
-    flex: 0 0 calc(75%);
-    max-width: 0 0 calc(75%);
+    flex: 0 0 calc(75% - .25rem);
+    max-width: 0 0 calc(75% - .25rem);
   }
   .grid-13 {
-    flex: 0 0 calc(81.25%);
-    max-width: 0 0 calc(81.25%);
+    flex: 0 0 calc(81.25% - .25rem);
+    max-width: 0 0 calc(81.25% - .25rem);
   }
   .grid-14 {
-    flex: 0 0 calc(87.25%);
-    max-width: 0 0 calc(87.25%);
+    flex: 0 0 calc(87.25% - .25rem);
+    max-width: 0 0 calc(87.25% - .25rem);
   }
   .grid-15 {
-    flex: 0 0 calc(93.75%);
-    max-width: 0 0 calc(93.75%);
+    flex: 0 0 calc(93.75% - .25rem);
+    max-width: 0 0 calc(93.75% - .25rem);
   }
   .grid-16 {
-    flex: 0 0 calc(100%);
-    max-width: 0 0 calc(100%);
+    flex: 0 0 calc(100% - .25rem);
+    max-width: 0 0 calc(100% - .25rem);
   }
-}
-
-.p-r-1 {
-  padding-right: 1rem;
-}
-.m-b-1 {
-  margin-bottom: 1rem;
 }

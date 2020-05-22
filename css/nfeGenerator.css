@@ -1,25 +1,30 @@
+main{
+  padding: 0 1rem;
+}
+main .flex-grid div {
+  margin-bottom: 1rem;
+}
+.input-data input {
+  text-align: center;
+}
+#cnpj-input.erro {
+  border-color: red;
+}
+#cnpj-input.erro  button{
+  border-color: transparent transparent transparent red;
+}
+#valid-text-copy-nfe {
+  margin: 1rem 0;
+  display: none;
+  color: darkgreen;
+}
 
 @media(min-width: 960px) {
   main {
     padding: 2rem 1rem;
     color: #555555;
   }
-  .input-data input {
-    text-align: center;
-  }
 
-  .flex-grid:last-child{
-    padding: 0;
-  }
-
-  #invalid-cnpj-text {
-    display: none;
-  }
-  #valid-text-copy-nfe {
-    margin: 1rem 0;
-    display: none;
-    color: darkgreen;
-  }
   main {
     padding-left: 0;
     padding-right: 0;

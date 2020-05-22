@@ -45,15 +45,15 @@
         </header>
         <main>
             <div class="flex-grid">
-                <div class="grid-4 p-r-1 m-b-1">
-                    <div class="input-data">
+
+                <div class="grid-4">
+                    <div class="input-data" id="cnpj-input">
                         <input placeholder="CNPJ" type="text" id="cnpj" minlength="14" maxlength="14" required />
                         <button id="gerar-cnpj" class="rdn-gen-link">Gerar CNPJ</button>
                     </div>
-                    <!-- <span id="invalid-cnpj-text" class="invalid-text">CNPJ inválido</span> -->
                 </div>
 
-                <div class="grid-6 p-r-1 m-b-1">
+                <div class="grid-6">
                     <div class="input-data">
                         <label for="uf">UF: </label>
                         <select id="uf" required>
@@ -88,7 +88,7 @@
                     </div>
                 </div>
 
-                <div class="grid-6 m-b-1">
+                <div class="grid-6">
                     <div class="input-data">
                         <label for="mes">Mês/Ano emissão: </label>
                         <select id="mes" name="mes" required>
@@ -108,8 +108,7 @@
                         <input class="full-year-size" type="text" id="ano" minlength="4" maxlength="4" />
                     </div>
                 </div>
-
-                <div class="grid-4 p-r-1 m-b-1">
+                <div class="grid-4">
                     <div class=input-data>
                         <label for="modelo">
                             Modelo:
@@ -118,7 +117,7 @@
                     </div>
                 </div>
 
-                <div class="grid-4 p-r-1 m-b-1">
+                <div class="grid-4">
                     <div class="input-data">
                         <label for="serie">
                             Série:
@@ -127,21 +126,21 @@
                     </div>
                 </div>
 
-                <div class="grid-4 p-r-1 m-b-1">
+                <div class="grid-4">
                     <div class="input-data">
                         <input placeholder="Numero da Nota" type="text" id="numero" minlength="9" maxlength="9" required />
                         <button class="rdn-gen-link" id="gerar-nota">Gerar Número</button>
                     </div>
                 </div>
 
-                <div class="grid-4 m-b-1">
+                <div class="grid-4">
                     <div class="input-data">
                         <input placeholder="Código numérico" type="text" id="codigoNumerico" minlength="8" maxlength="8" required />
                         <button href="#" class="rdn-gen-link" id="gerar-codigo">Gerar Código</button>
                     </div>
                 </div>
 
-                <div class="grid-16 m-b-1">
+                <div class="grid-16">
                     <div class="input-data">
                         <label for="tipoEmissao">
                             Forma de emissão
@@ -156,11 +155,8 @@
                         <button class="rdn-gen-link" id="btn-gen-nfe">Gerar Chave de Acesso</button>
                     </div>
                 </div>
-                <div class="grid-16 m-b-1">
+                <div class="grid-16">
                     <div class="input-data lg">
-                        <label for="chave-nfe">
-                            Chave NF-e
-                        </label>
                         <input type="text" placeholder="Chave NF-e" class="copyable-input" id="chave-nfe" readonly />
                     </div>
                 </div>
@@ -201,14 +197,14 @@
             }
 
             function valCnpj(e) {
-                setDisplay("invalid-cnpj-text", "none");
+                document.getElementById('cnpj-input').classList.remove('erro');
 
                 let cnpj = e.target.value;
 
                 if (!cnpj) { return ;}
 
                 if (cnpj.length !== 14 || !cnpjIsValid(cnpj)) {
-                    setDisplay("invalid-cnpj-text", "block");
+                    document.getElementById('cnpj-input').classList.add('erro');
                 }
             }
 
