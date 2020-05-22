@@ -1,0 +1,153 @@
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #555555;
+}
+header {
+  width: 100%;
+  height: 6rem;
+}
+main {
+  width: 100%;
+  min-height: calc(100vh - 8rem);
+}
+footer {
+  width: 100%;
+  height: 2rem;
+}
+.flex-grid {
+  display: flex;
+  flex-wrap: wrap;
+  height: 100%;
+}
+.grid-1, .grid-2, .grid-3, .grid-4,
+.grid-5, .grid-6, .grid-7, .grid-8,
+.grid-9, .grid-10, .grid-11, .grid-12,
+.grid-13, .grid-14, .grid-15, .grid-16 {
+  align-self: flex-start;
+  margin-left: .25rem;
+}
+.grid-1, .grid-2, .grid-3, .grid-4, .grid-5, .grid-6, .grid-7, .grid-8,
+.grid-9, .grid-10, .grid-11, .grid-12, .grid-13, .grid-14, .grid-15, .grid-16 {
+  flex: 0 0 calc(100% - .25rem);
+  max-width: 0 0 calc(100% - .25rem);
+}
+
+.input-data {
+  display: flex;
+  border: .1rem solid #555555;
+  border-radius: 3px;
+  height: 3rem;
+  font-size: 1rem;
+}
+.input-data.lg {
+  height: 5rem;
+  font-size: 2rem;
+}
+.input-data label {
+  margin: 0 .5rem;
+  align-self: center;
+  color: #555555;
+}
+.input-data input {
+  border: none;
+  height: 100%;
+  flex-grow: 1;
+  color: #555555;
+}
+.input-data select {
+  border: none;
+  background-color: #FFFFFF;
+  color: #555555;
+  height: 100%;
+  flex-grow: 1;
+}
+.input-data select {
+  cursor: pointer;
+}
+.input-data button {
+  border: none;
+  border-left: .1rem solid #555555;
+  color: #555555;
+  height: 100%;
+  background-color: transparent;
+}
+.input-data button:hover {
+  cursor: pointer;
+  color: #FFFFFF;
+  background-color: #555555;
+}
+@media(min-width: 960px){
+  header, main, footer {
+    width: 90vw;
+    margin: 0 auto;
+  }
+  .grid-1 {
+    flex: 0 0 calc(6.25% - .25rem);
+    max-width: 0 0 calc(6.25% - .25rem);
+  }
+  .grid-2 {
+    flex: 0 0 calc(12.5% - .25rem);
+    max-width: 0 0 calc(12.5% - .25rem);
+  }
+  .grid-3 {
+    flex: 0 0 calc(18.75% - .25rem);
+    max-width: 0 0 calc(18.75% - .25rem);
+  }
+  .grid-4 {
+    flex: 0 0 calc(25% - .25rem);
+    max-width: 0 0 calc(25% - .25rem);
+  }
+  .grid-5 {
+    flex: 0 0 calc(31.25% - .25rem);
+    max-width: 0 0 calc(31.25% - .25rem);
+  }
+  .grid-6 {
+    flex: 0 0 calc(37.5% - .25rem);
+    max-width: 0 0 calc(37.5% - .25rem);
+  }
+  .grid-7 {
+    flex: 0 0 calc(43.75% - .25rem);
+    max-width: 0 0 calc(43.75% - .25rem);
+  }
+  .grid-8 {
+    flex: 0 0 calc(50% - .25rem);
+    max-width: 0 0 calc(50% - .25rem);
+  }
+  .grid-9 {
+    flex: 0 0 calc(56.25% - .25rem);
+    max-width: 0 0 calc(56.25% - .25rem);
+  }
+  .grid-10 {
+    flex: 0 0 calc(62.5% - .25rem);
+    max-width: 0 0 calc(62.5% - .25rem);
+  }
+  .grid-11 {
+    flex: 0 0 calc(68.75% - .25rem);
+    max-width: 0 0 calc(68.75% - .25rem);
+  }
+  .grid-12 {
+    flex: 0 0 calc(75% - .25rem);
+    max-width: 0 0 calc(75% - .25rem);
+  }
+  .grid-13 {
+    flex: 0 0 calc(81.25% - .25rem);
+    max-width: 0 0 calc(81.25% - .25rem);
+  }
+  .grid-14 {
+    flex: 0 0 calc(87.25% - .25rem);
+    max-width: 0 0 calc(87.25% - .25rem);
+  }
+  .grid-15 {
+    flex: 0 0 calc(93.75% - .25rem);
+    max-width: 0 0 calc(93.75% - .25rem);
+  }
+  .grid-16 {
+    flex: 0 0 calc(100% - .25rem);
+    max-width: 0 0 calc(100% - .25rem);
+  }
+}

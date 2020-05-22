@@ -1,0 +1,27 @@
+main {
+  padding: 2rem 1rem;
+}
+.input-data {
+  margin-bottom: 1rem;
+}
+.input-data input{
+  text-align: center;
+}
+span.valid-text {
+    color: darkgreen;
+    text-align: right;
+}
+span.invalid-text {
+    color: red;
+    text-align: right;
+}
+.valid-text, .invalid-text {
+    display: none;
+}
+
+@media(min-width: 960px){
+  main {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}

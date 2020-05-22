@@ -1,0 +1,43 @@
+main {
+  padding: 2rem 1rem;
+}
+.input-data {
+  margin-bottom: 1rem;
+}
+.input-data input {
+  text-align: center;
+}
+span.valid-text {
+  text-align: right;
+  color: darkgreen;
+}
+span.invalid-text {
+  text-align: right;
+  color: red;
+}
+.valid-text, .invalid-text {
+  margin-bottom: 1rem;
+}
+
+.links-extras a {
+  color: #555555;
+  margin-right: 1rem;
+}
+.links-extras a {
+  text-decoration: none;
+}
+.links-extras a:hover {
+  text-decoration: underline;
+}
+#nfe-invalid-text,
+#nfe-valid-text,
+#visualize-key-data,
+#verify-authenticity {
+  display: none;
+}
+@media(min-width: 960px){
+  main {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}

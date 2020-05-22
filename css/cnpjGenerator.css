@@ -1,0 +1,25 @@
+main {
+  padding: 2rem 1rem;
+}
+.input-data {
+  margin-bottom: 1rem;
+}
+.generated input {
+  text-align: center;
+}
+.big-input-text {
+  color: #555555;
+}
+.valid-text {
+  color: darkgreen;
+}
+#valid-text-copy-cnpj {
+  text-align: right;
+  display: none;
+}
+@media(min-width: 960px){
+  main {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}

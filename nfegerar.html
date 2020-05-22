@@ -6,12 +6,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/reset.css" />
-        <link rel="stylesheet" href="css/grid.css" />
-        <link rel="stylesheet" href="css/site.css" />
+        <link rel="stylesheet" href="css/base.css" />
+        <link rel="stylesheet" href="css/header.css">
+        <link rel="stylesheet" href="css/nfeGenerator.css">
+        <link rel="stylesheet" href="css/footer.css">
     </head>
     <body onresize="onResize()">
         <header>
-            <div class="container flex-grid">
+            <div class="flex-grid">
                 <div class="menu-hamburguer">
                     <input id="menu-hamburguer" type="checkbox" onclick="showMenu()">
                     <label for="menu-hamburguer">
@@ -20,19 +22,18 @@
                         </div>
                     </label>
                 </div>
-                <div class="title grid-11">
+                <div class="title grid-6">
                     <h1><a href="index.html">The QA Tools - Demo site</a></h1>
                 </div>
-                <nav class="grid-5" id="menuNav">
-                    <div class="tool-options">
+                <nav class="grid-10" id="menuNav">
+                    <div class="tool-options grid-3">
                         <h2>CNPJ</h2>
                         <ul>
                             <li><a href="cnpjgerar.html">Gerar</a></li>
                             <li><a href="cnpjvalidar.html">Validar</a></li>
                         </ul>
                     </div>
-
-                    <div class="tool-options">
+                    <div class="tool-options grid-3">
                         <h2>Chave NFe</h2>
                         <ul>
                             <li><a href="nfegerar.html">Gerar</a></li>
@@ -43,99 +44,107 @@
             </div>
         </header>
         <main>
-            <div class="nfe-area">
-                <div class="container flex-grid">
-                    <label for="cnpj" class="grid-5">
-                        CNPJ
-                        <div>
-                            <input style="width: 14ch;" type="text" id="cnpj" minlength="14" maxlength="14" required />
-                            <span id="invalid-cnpj-text" class="invalid-text">CNPJ inválido</span>
-                        </div>
-                        <a href="#" id="gerar-cnpj" class="rdn-gen-link">Gerar CNPJ</a>
-                    </label>
+            <div class="flex-grid">
 
-                    <label for="uf" class="grid-5">
-                        UF
-                        <select id="uf" required>
-                            <option value="11">11 - Rondônia</option>
-                            <option value="12">12 - Acre</option>
-                            <option value="13">13 - Amazonas</option>
-                            <option value="14">14 - Roraima</option>
-                            <option value="15">15 - Pará</option>
-                            <option value="16">16 - Amapá</option>
-                            <option value="17">17 - Tocantins</option>
-                            <option value="21">21 - Maranhão</option>
-                            <option value="22">22 - Piauí</option>
-                            <option value="23">23 - Ceará</option>
-                            <option value="24">24 - Rio Grande do Norte</option>
-                            <option value="25">25 - Paraíba</option>
-                            <option value="26">26 - Pernambuco</option>
-                            <option value="27">27 - Alagoas</option>
-                            <option value="28">28 - Sergipe</option>
-                            <option value="29">29 - Bahia</option>
-                            <option value="31">31 - Minas Gerais</option>
-                            <option value="32">32 - Espírito Santo</option>
-                            <option value="33">33 - Rio de Janeiro</option>
-                            <option value="35" selected>35 - São Paulo</option>
-                            <option value="41">41 - Paraná</option>
-                            <option value="42">42 - Santa Catarina</option>
-                            <option value="43">43 - Rio Grande do Sul</option>
-                            <option value="50">50 - Mato Grosso do Sul</option>
-                            <option value="51">51 - Mato Grosso</option>
-                            <option value="52">52 - Goiás</option>
-                            <option value="53">53 - Distrito Federal</option>
-                        </select>
-                    </label>
-
-                    <div class="grid-6">
-                        <legend>Mês/Ano emissão</legend>
-                        <div class="year-month-group">
-                            <select id="mes" required>
-                                <option value="1">1 - Janeiro</option>
-                                <option value="2">2 - Fevereiro</option>
-                                <option value="3">3 - Março</option>
-                                <option value="4">4 - Abril</option>
-                                <option value="5">5 - Maio</option>
-                                <option value="6">6 - Junho</option>
-                                <option value="7">7 - Julho</option>
-                                <option value="8">8 - Agosto</option>
-                                <option value="9">9 - Setembro</option>
-                                <option value="10">10 - Outubro</option>
-                                <option value="11">11 - Novembro</option>
-                                <option value="12">12 - Dezembro</option>
-                            </select>
-                            <input style="width: 4ch;" class="full-year-size" type="text" id="ano" minlength="4" maxlength="4" />
-                        </div>
+                <div class="grid-4">
+                    <div class="input-data" id="cnpj-input">
+                        <input placeholder="CNPJ" type="text" id="cnpj" minlength="14" maxlength="14" required />
+                        <button id="gerar-cnpj" class="rdn-gen-link">Gerar CNPJ</button>
                     </div>
                 </div>
 
-                <div class="flex-grid">
-                    <label for="modelo" class="grid-4">
-                        Modelo
-                        <input type="text" style="width: 2ch;" id="modelo" value="55" minlength="2" maxlength="2" required />
-                    </label>
-
-                    <label for="serie" class="grid-4">
-                        Série
-                        <input type="text" style="width: 3ch;" id="serie" value="001" minlength="3" maxlength="3" required />
-                    </label>
-
-                    <label for="numero" class="grid-4">
-                        Número da nota
-                        <input type="text" style="width: 9ch;" id="numero" minlength="9" maxlength="9" required />
-                        <a href="#" class="rdn-gen-link" id="gerar-nota">Gerar Número</a>
-                    </label>
-
-                    <label for="codigoNumerico" class="grid-4">
-                        Código numérico
-                        <input type="text" style="width: 9ch;" id="codigoNumerico" minlength="8" maxlength="8" required />
-                        <a href="#" class="rdn-gen-link" id="gerar-codigo">Gerar Código</a>
-                    </label>
+                <div class="grid-6">
+                    <div class="input-data">
+                        <label for="uf">UF: </label>
+                        <select id="uf" required>
+                            <option value="11">Rondônia</option>
+                            <option value="12">Acre</option>
+                            <option value="13">Amazonas</option>
+                            <option value="14">Roraima</option>
+                            <option value="15">Pará</option>
+                            <option value="16">Amapá</option>
+                            <option value="17">Tocantins</option>
+                            <option value="21">Maranhão</option>
+                            <option value="22">Piauí</option>
+                            <option value="23">Ceará</option>
+                            <option value="24">Rio Grande do Norte</option>
+                            <option value="25">Paraíba</option>
+                            <option value="26">Pernambuco</option>
+                            <option value="27">Alagoas</option>
+                            <option value="28">Sergipe</option>
+                            <option value="29">Bahia</option>
+                            <option value="31">Minas Gerais</option>
+                            <option value="32">Espírito Santo</option>
+                            <option value="33">Rio de Janeiro</option>
+                            <option value="35" selected>São Paulo</option>
+                            <option value="41">Paraná</option>
+                            <option value="42">Santa Catarina</option>
+                            <option value="43">Rio Grande do Sul</option>
+                            <option value="50">Mato Grosso do Sul</option>
+                            <option value="51">Mato Grosso</option>
+                            <option value="52">Goiás</option>
+                            <option value="53">Distrito Federal</option>
+                        </select>
+                    </div>
                 </div>
 
-                <div class="flex-grid">
-                    <label for="tipoEmissao" class="grid-2">
-                        Forma de emissão
+                <div class="grid-6">
+                    <div class="input-data">
+                        <label for="mes">Mês/Ano emissão: </label>
+                        <select id="mes" name="mes" required>
+                            <option value="1">Janeiro</option>
+                            <option value="2">Fevereiro</option>
+                            <option value="3">Março</option>
+                            <option value="4">Abril</option>
+                            <option value="5">Maio</option>
+                            <option value="6">Junho</option>
+                            <option value="7">Julho</option>
+                            <option value="8">Agosto</option>
+                            <option value="9">Setembro</option>
+                            <option value="10">Outubro</option>
+                            <option value="11">Novembro</option>
+                            <option value="12">Dezembro</option>
+                        </select>
+                        <input class="full-year-size" type="text" id="ano" minlength="4" maxlength="4" />
+                    </div>
+                </div>
+                <div class="grid-4">
+                    <div class=input-data>
+                        <label for="modelo">
+                            Modelo:
+                        </label>
+                        <input type="text" id="modelo" value="55" minlength="2" maxlength="2" required />
+                    </div>
+                </div>
+
+                <div class="grid-4">
+                    <div class="input-data">
+                        <label for="serie">
+                            Série:
+                        </label>
+                        <input type="text" id="serie" value="001" minlength="3" maxlength="3" required />
+                    </div>
+                </div>
+
+                <div class="grid-4">
+                    <div class="input-data">
+                        <input placeholder="Numero da Nota" type="text" id="numero" minlength="9" maxlength="9" required />
+                        <button class="rdn-gen-link" id="gerar-nota">Gerar Número</button>
+                    </div>
+                </div>
+
+                <div class="grid-4">
+                    <div class="input-data">
+                        <input placeholder="Código numérico" type="text" id="codigoNumerico" minlength="8" maxlength="8" required />
+                        <button href="#" class="rdn-gen-link" id="gerar-codigo">Gerar Código</button>
+                    </div>
+                </div>
+
+                <div class="grid-16">
+                    <div class="input-data">
+                        <label for="tipoEmissao">
+                            Forma de emissão
+                        </label>
                         <select id="tipoEmissao">
                             <option value="1" selected>Normal</option>
                             <option value="2">Contingência FS</option>
@@ -143,22 +152,16 @@
                             <option value="4">Contingência DPEC</option>
                             <option value="5">Contingência FS-DA</option>
                         </select>
-                    </label>
-
-                    <div class="grid-12">
-                        <label for="chave-nfe">
-                            Chave NF-e
-                            <input type="text" placeholder="Chave NF-e" class="copyable-input" id="chave-nfe" readonly />
-                            <span id="valid-text-copy-nfe" style="text-align: right;" class="valid-text">Chave copiada para área de transferência!</span>
-                        </label>
+                        <button class="rdn-gen-link" id="btn-gen-nfe">Gerar Chave de Acesso</button>
                     </div>
                 </div>
                 <div class="grid-16">
-                    <button id="btn-gen-nfe">Gerar Chave de Acesso</button>
+                    <div class="input-data lg">
+                        <input type="text" placeholder="Chave NF-e" class="copyable-input" id="chave-nfe" readonly />
+                    </div>
                 </div>
             </div>
-            <span id="valid-text" class="valid-text">CNPJ válido</span>
-            <span id="invalid-text" class="invalid-text">CNPJ inválido</span>
+            <span id="valid-text-copy-nfe" style="text-align: right;" class="valid-text">Chave copiada para área de transferência!</span>
         </main>
         <footer>
             <p>&copy; The QA Tools - <a href="desenvolvedores.html">Desenvolvedores</a></p>
@@ -194,11 +197,14 @@
             }
 
             function valCnpj(e) {
+                document.getElementById('cnpj-input').classList.remove('erro');
+
                 let cnpj = e.target.value;
+
+                if (!cnpj) { return ;}
+
                 if (cnpj.length !== 14 || !cnpjIsValid(cnpj)) {
-                    setDisplay("invalid-cnpj-text", "block");
-                } else {
-                    setDisplay("invalid-cnpj-text", "none");
+                    document.getElementById('cnpj-input').classList.add('erro');
                 }
             }
 
