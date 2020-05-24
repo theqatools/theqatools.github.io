@@ -1,21 +1,29 @@
 footer {
-  background-color: #FFE08A;
+  background-color: #555555;
   font-size: 13px;
   width: 100%;
   padding-top: 10px;
 }
+
 footer p {
-  color: #555555;
+  color: #FFFFFF;
   text-align: center;
 }
+
+footer p a {
+  padding: 5px;
+  border-radius: 3px;
+}
+
 footer p:link, footer p a:visited {
-  color: #555555;
+  color: #FFFFFF;
   text-decoration: none;
 }
 
 footer p a:hover {
   cursor: pointer;
-  color: #f05022
+  background-color: #FFFFFF;
+  color: #555555
 }
 
 footer p a:active {
