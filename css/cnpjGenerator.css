@@ -8,16 +8,16 @@ main {
   text-align: center;
 }
 .big-input-text {
-  color: #555555;
+  color: var(--first-color);
 }
 .valid-text {
-  color: darkgreen;
+  color: var(--success);
 }
 #valid-text-copy-cnpj {
   text-align: right;
   display: none;
 }
-@media(min-width: 960px){
+@media (min-width: 960px) {
   main {
     padding-left: 0;
     padding-right: 0;
