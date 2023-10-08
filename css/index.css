@@ -11,7 +11,7 @@ main {
 }
 .wasm-box p {
   font-size: 1.75rem;
-  color: #555555;
+  color: var(--first-color);
   font-weight: bold;
   text-align: center;
 }

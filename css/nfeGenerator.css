@@ -1,4 +1,4 @@
-main{
+main {
   padding: 0 1rem;
 }
 main .flex-grid div {
@@ -8,21 +8,21 @@ main .flex-grid div {
   text-align: center;
 }
 #cnpj-input.erro {
-  border-color: red;
+  border-color: var(--error);
 }
-#cnpj-input.erro  button{
-  border-color: transparent transparent transparent red;
+#cnpj-input.erro button {
+  border-color: transparent transparent transparent var(--error);
 }
 #valid-text-copy-nfe {
   margin: 1rem 0;
   display: none;
-  color: darkgreen;
+  color: var(--success);
 }
 
-@media(min-width: 960px) {
+@media (min-width: 960px) {
   main {
     padding: 2rem 1rem;
-    color: #555555;
+    color: var(--first-color);
   }
 
   main {

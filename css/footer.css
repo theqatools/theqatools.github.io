@@ -1,29 +1,19 @@
 footer {
-  background-color: #555555;
+  background-color: var(--background);
+  border-top: 1px solid var(--first-color);
   font-size: 13px;
   width: 100%;
   padding-top: 10px;
 }
 
 footer p {
-  color: #FFFFFF;
+  color: var(--first-color);
   text-align: center;
 }
 
 footer p a {
   padding: 5px;
   border-radius: 3px;
-}
-
-footer p:link, footer p a:visited {
-  color: #FFFFFF;
-  text-decoration: none;
-}
-
-footer p a:hover {
-  cursor: pointer;
-  background-color: #FFFFFF;
-  color: #555555
 }
 
 footer p a:active {

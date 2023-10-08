@@ -4,22 +4,23 @@ main {
 .input-data {
   margin-bottom: 1rem;
 }
-.input-data input{
+.input-data input {
   text-align: center;
 }
 span.valid-text {
-    color: darkgreen;
-    text-align: right;
+  color: var(--success);
+  text-align: right;
 }
 span.invalid-text {
-    color: red;
-    text-align: right;
+  color: var(--error);
+  text-align: right;
 }
-.valid-text, .invalid-text {
-    display: none;
+.valid-text,
+.invalid-text {
+  display: none;
 }
 
-@media(min-width: 960px){
+@media (min-width: 960px) {
   main {
     padding-left: 0;
     padding-right: 0;

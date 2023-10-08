@@ -9,18 +9,19 @@ main {
 }
 span.valid-text {
   text-align: right;
-  color: darkgreen;
+  color: var(--success);
 }
 span.invalid-text {
   text-align: right;
-  color: red;
+  color: var(--error);
 }
-.valid-text, .invalid-text {
+.valid-text,
+.invalid-text {
   margin-bottom: 1rem;
 }
 
 .links-extras a {
-  color: #555555;
+  color: var(--first-color);
   margin-right: 1rem;
 }
 .links-extras a {
@@ -35,7 +36,7 @@ span.invalid-text {
 #verify-authenticity {
   display: none;
 }
-@media(min-width: 960px){
+@media (min-width: 960px) {
   main {
     padding-left: 0;
     padding-right: 0;
