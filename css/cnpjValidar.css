@@ -1,6 +1,4 @@
-main {
-  padding: 2rem 1rem;
-}
+
 .input-data {
   margin-bottom: 1rem;
 }
@@ -21,8 +19,5 @@ span.invalid-text {
 }
 
 @media (min-width: 960px) {
-  main {
-    padding-left: 0;
-    padding-right: 0;
-  }
+
 }

@@ -7,54 +7,54 @@
       href="https://fonts.googleapis.com/css?family=Playfair+Display&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="css/normalize.css" />
-    <link rel="stylesheet" href="css/reset.css" />
-    <link rel="stylesheet" href="css/base.css" />
-    <link rel="stylesheet" href="css/header.css" />
+    <link rel="stylesheet" href="public/css/normalize.css" />
+    <link rel="stylesheet" href="public/css/reset.css" />
+    <link rel="stylesheet" href="public/css/base.css" />
+    <link rel="stylesheet" href="public/css/colors.css" />
+    <!-- <link rel="stylesheet" href="public/css/header.css" /> -->
+    <link rel="stylesheet" href="public/css/index.css" />
+    <!-- <link rel="stylesheet" href="public/css/footer.css" /> -->
+    <!-- <link rel="stylesheet" href="css/base.css" />
     <link rel="stylesheet" href="css/index.css" />
-    <link rel="stylesheet" href="css/footer.css" />
+     -->
     <title>The QA Tools - Demo site</title>
   </head>
-  <body onresize="onResize()">
+  <body onresize="onResize()" class="container">
     <header>
-      <div class="flex-grid">
-        <div class="menu-hamburguer">
-          <input id="menu-hamburguer" type="checkbox" onclick="showMenu()" />
-          <label for="menu-hamburguer">
-            <div class="menu">
-              <span class="hamburguer"></span>
-            </div>
-          </label>
-        </div>
-        <div class="title grid-6">
-          <h1><a href="index.html">The QA Tools - Demo site</a></h1>
-        </div>
-        <nav class="grid-10" id="menuNav">
-          <div class="tool-options grid-3">
-            <h2>CNPJ</h2>
-            <ul>
-              <li><a href="cnpjgerar.html">Gerar</a></li>
-              <li><a href="cnpjvalidar.html">Validar</a></li>
-            </ul>
+      <div class="menu-hamburguer">
+        <input id="menu-hamburguer" type="checkbox" onclick="showMenu()" />
+        <label for="menu-hamburguer">
+          <div class="menu">
+            <span class="hamburguer"></span>
           </div>
-          <div class="tool-options grid-3">
-            <h2>Chave NFe</h2>
-            <ul>
-              <li><a href="nfegerar.html">Gerar</a></li>
-              <li><a href="nfevalidar.html">Validar</a></li>
-            </ul>
-          </div>
-        </nav>
+        </label>
       </div>
+      <h1 class="title"><a href="index.html">The QA Tools - Demo site</a></h1>
     </header>
     <main>
-      <div class="wasm-box">
-        <img src="img/wasm-ferris.png" />
-      </div>
-      <div class="wasm-box">
-        <p>Ferramentas construídas com Rust + WebAssembly</p>
-      </div>
+      <img
+        class="wasm-img"
+        src="img/wasm-ferris.png"
+        alt="Caranguejo do Rust com um boné do WebAssembly"
+      />
+      <p>Ferramentas construídas com Rust + WebAssembly</p>
     </main>
+    <nav id="menuNav">
+      <div>
+        <h2>CNPJ</h2>
+        <ul>
+          <li><a href="cnpjgerar.html">Gerar</a></li>
+          <li><a href="cnpjvalidar.html">Validar</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Chave NFe</h2>
+        <ul>
+          <li><a href="nfegerar.html">Gerar</a></li>
+          <li><a href="nfevalidar.html">Validar</a></li>
+        </ul>
+      </div>
+    </nav>
     <footer>
       <p>
         &copy; The QA Tools - <a href="desenvolvedores.html">Desenvolvedores</a>
@@ -63,8 +63,6 @@
     <script src="js/script.js"></script>
     <script src="js/dark_mode.js"></script>
     <!-- <button onclick="detectColorScheme()">Toggle dark mode</button> -->
-    <script>
-      
-    </script>
+    <script></script>
   </body>
 </html>

@@ -1,6 +1,3 @@
-main {
-  padding: 2rem 1rem;
-}
 .input-data {
   margin-bottom: 1rem;
 }
@@ -16,10 +13,4 @@ main {
 #valid-text-copy-cnpj {
   text-align: right;
   display: none;
-}
-@media (min-width: 960px) {
-  main {
-    padding-left: 0;
-    padding-right: 0;
-  }
 }

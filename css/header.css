@@ -1,6 +1,4 @@
-.title {
-  height: 100%;
-}
+header 
 .title h1 {
   font-family: "Playfair Display", serif;
   font-size: 1.5rem;
@@ -8,10 +6,6 @@
   display: flex;
   text-align: center;
   align-items: center;
-}
-
-header h1 a {
-  width: 100%;
 }
 
 header h1 a:link {

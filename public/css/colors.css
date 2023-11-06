@@ -1,0 +1,41 @@
+:root {
+  --background: #ffffff;
+  --first-color: #555555;
+  --second-color: #ff971d;
+  --third-color: #f9f6f7;
+  --success: #006400;
+  --error: #ff0000;
+}
+[data-theme="dark"] {
+  --background: #121212;
+  --first-color: #ededed;
+  --second-color: #da0037;
+  --third-color: #444444;
+  --success: #006400;
+  --error: #ff0000;
+}
+
+body {
+  color: var(--first-color);
+  background-color: var(--third-color);
+}
+
+header,
+nav,
+main,
+footer,
+input {
+  background-color: var(--background);
+  color: var(--first-color);
+}
+
+a,
+a:link,
+a:visited {
+  color: var(--second-color);
+}
+
+header h1 a:link,
+header h1 a:visited {
+  color: var(--first-color);
+}
