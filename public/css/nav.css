@@ -1,0 +1,34 @@
+/* Navbar */
+nav {
+  overflow: auto;
+  -webkit-transition: width 0.25s ease-in-out;
+  -moz-transition: width 0.25s ease-in-out;
+  -o-transition: width 0.25s ease-in-out;
+  transition: width 0.25s ease-in-out, overflow 0s;
+  text-align: center;
+  padding-top: 1rem;
+  border-radius: 0 0.5rem 0.5rem 0;
+}
+
+nav.visible {
+  margin: 0;
+  overflow: auto;
+  width: 100vw;
+}
+
+nav div:nth-child(2) {
+  margin-top: 2rem;
+}
+
+@media (max-width: 960px) {
+  /* navbar */
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    padding: 0;
+    padding-top: 2rem;
+  }
+}

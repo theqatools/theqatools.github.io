@@ -1,110 +1,126 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+  <head>
+    <title>The QA Tools - Demo site</title>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, minimum-scale=1"
+    />
+    <link rel="stylesheet" href="public/css/normalize.css" />
+    <link rel="stylesheet" href="public/css/reset.css" />
+    <link rel="stylesheet" href="public/css/base.css" />
+    <link rel="stylesheet" href="public/css/colors.css" />
+    <link rel="stylesheet" href="public/css/header.css" />
+    <link rel="stylesheet" href="public/css/nav.css" />
+    <link rel="stylesheet" href="public/css/cnpj-generator.css" />
+    <link rel="stylesheet" href="public/css/footer.css" />
+  </head>
 
-<head>
-  <title>The QA Tools - Demo site</title>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/reset.css" />
-  <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/header.css">
-  <link rel="stylesheet" href="css/cnpjGenerator.css">
-  <link rel="stylesheet" href="css/footer.css">
-</head>
-
-<body onresize="onResize()">
-  <header>
-    <div class="flex-grid">
+  <body onresize="onResize()">
+    <header>
       <div class="menu-hamburguer">
-        <input id="menu-hamburguer" type="checkbox" onclick="showMenu()">
+        <input id="menu-hamburguer" type="checkbox" onclick="showMenu()" />
         <label for="menu-hamburguer">
           <div class="menu">
             <span class="hamburguer"></span>
           </div>
         </label>
       </div>
-      <div class="title grid-6">
-        <h1><a href="index.html">The QA Tools - Demo site</a></h1>
+      <h1 class="title"><a href="index.html">The QA Tools</a></h1>
+      <p class="demo-flag">Demo site</p>
+    </header>
+    <main>
+      <p>
+        <label for="filial"> Filial: </label>
+        <input
+          type="number"
+          id="filial"
+          value="1"
+          maxlength="4"
+          minlength="1"
+          class="big-input-text filial-text"
+        />
+        <button id="novo">Gerar</button>
+      </p>
+      <p>
+        <input
+          placeholder="CNPJ"
+          readonly
+          maxlength="14"
+          minlength="14"
+          size="15"
+          class="big-input-text cnpj-text"
+          type="text"
+          id="cnpj-gerar-input"
+        />
+        <span id="valid-text-copy-cnpj">
+          CNPJ copiado para área de transferência!
+        </span>
+      </p>
+    </main>
+    <nav id="menuNav">
+      <div class="tool-options grid-3">
+        <h2>CNPJ</h2>
+        <ul>
+          <li><a href="cnpjgerar.html">Gerar</a></li>
+          <li><a href="cnpjvalidar.html">Validar</a></li>
+        </ul>
       </div>
-      <nav class="grid-10" id="menuNav">
-        <div class="tool-options grid-3">
-          <h2>CNPJ</h2>
-          <ul>
-            <li><a href="cnpjgerar.html">Gerar</a></li>
-            <li><a href="cnpjvalidar.html">Validar</a></li>
-          </ul>
-        </div>
-        <div class="tool-options grid-3">
-          <h2>Chave NFe</h2>
-          <ul>
-            <li><a href="nfegerar.html">Gerar</a></li>
-            <li><a href="nfevalidar.html">Validar</a></li>
-          </ul>
-        </div>
-      </nav>
-    </div>
-  </header>
-  <main >
-    <div class="flex-grid input-cnpj-area">
-      <div class="input-data grid-5">
-        <label for="filial">
-          Filial:
-        </label>
-        <input type="number" id="filial" value="1" maxlength="4" minlength="1" class="big-input-text filial-text" />
-        <div class="gerar">
-          <button id="novo">Gerar</button>
-        </div>
+      <div class="tool-options grid-3">
+        <h2>Chave NFe</h2>
+        <ul>
+          <li><a href="nfegerar.html">Gerar</a></li>
+          <li><a href="nfevalidar.html">Validar</a></li>
+        </ul>
       </div>
-      <div class="grid-16 generated input-data lg">
-        <input placeholder="CNPJ" readonly maxlength="14" minlength="14" size="15" class="big-input-text cnpj-text" type="text" id="cnpj-gerar-input"  />
-      </div>
-      <span id="valid-text-copy-cnpj" class="grid-16 valid-text">CNPJ copiado para área de transferência!</span>
-    </div>
-  </main>
-  <footer>
-    <p>&copy; The QA Tools - <a href="desenvolvedores.html">Desenvolvedores</a></p>
-  </footer>
-  <script src="js/script.js"></script>
-  <script src="js/dark_mode.js"></script>
-  <script type="module">
-    import { generateCnpjForBranch } from "./js/cnpj_utils.js";
-    function generate() {
-      let branch = getEl("filial").value;
-      branch = branch.replace(/[^0-9]/g, "");
+    </nav>
+    <footer>
+      <p>
+        &copy; The QA Tools - <a href="desenvolvedores.html">Desenvolvedores</a>
+      </p>
+    </footer>
+    <script src="js/script.js"></script>
+    <script src="js/dark_mode.js"></script>
+    <script type="module">
+      import { generateCnpjForBranch } from "./js/cnpj_utils.js";
+      function generate() {
+        let branch = getEl("filial").value;
+        branch = branch.replace(/[^0-9]/g, "");
 
-      if (branch === "") {
-        branch = "1";
-        getEl("filial").value = branch;
+        if (branch === "") {
+          branch = "1";
+          getEl("filial").value = branch;
+        }
+
+        const branch_no = parseInt(branch, 10);
+
+        if (branch_no === 0) {
+          branch = "1";
+          getEl("filial").value = branch;
+        }
+
+        getEl("cnpj-gerar-input").value = generateCnpjForBranch(branch);
       }
 
-      const branch_no = parseInt(branch, 10);
-
-      if (branch_no === 0) {
-        branch = "1";
-        getEl("filial").value = branch;
+      function novoOnClick() {
+        generate();
+        return false;
       }
 
-      getEl("cnpj-gerar-input").value = generateCnpjForBranch(branch);
-    }
+      function copyCnpj() {
+        copy("cnpj-gerar-input");
+        setDisplay("valid-text-copy-cnpj", "block");
+      }
 
-    function novoOnClick() {
-      generate();
-      return false;
-    }
+      addHandler("novo", "click", novoOnClick);
+      addHandler("filial", "change", generate);
+      addHandler("cnpj-gerar-input", "mouseup", copyCnpj);
+      addHandler("cnpj-gerar-input", "blur", (e) =>
+        setDisplay("valid-text-copy-cnpj", "none")
+      );
 
-    function copyCnpj() {
-      copy("cnpj-gerar-input");
-      setDisplay("valid-text-copy-cnpj", "block");
-    }
-
-    addHandler("novo", "click", novoOnClick);
-    addHandler("filial", "change", generate);
-    addHandler("cnpj-gerar-input", "mouseup", copyCnpj);
-    addHandler("cnpj-gerar-input", "blur", e => setDisplay("valid-text-copy-cnpj", "none"));
-
-    setTimeout(generate, 1000);
-  </script>
-</body>
-
+      setTimeout(generate, 1000);
+    </script>
+  </body>
 </html>

@@ -10,6 +10,31 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   letter-spacing: 0.75px;
   line-height: 2rem;
+  display: grid;
+  height: 100vh;
+  grid-template-columns: 200px 1fr auto;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas:
+    "header main main"
+    "navbar main main"
+    "footer footer footer";
+  gap: 15px;
+}
+
+header {
+  grid-area: header;
+}
+
+nav {
+  grid-area: navbar;
+}
+
+main {
+  grid-area: main;
+}
+
+footer {
+  grid-area: footer;
 }
 
 a,
@@ -21,4 +46,32 @@ a:link {
 a:hover {
   cursor: pointer;
   text-decoration: underline;
+}
+
+@media (max-width: 960px) {
+  body {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+      "header"
+      "main"
+      "footer";
+  }
+
+  header {
+    grid-area: header;
+  }
+
+  nav {
+    grid-area: navbar;
+  }
+
+  main {
+    grid-area: main;
+  }
+
+  footer {
+    grid-area: footer;
+  }
 }
